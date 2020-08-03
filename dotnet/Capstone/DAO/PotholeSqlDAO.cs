@@ -20,15 +20,15 @@ namespace Capstone.DAO
         public List<Pothole> GetAllPotholes()
         {
             List<Pothole> potholes = new List<Pothole>();
-            const string sqlQuery = "select pothole.id, [Location], DateAdded, [Description], ph.InProgress, ph.Repaired, ph.Reported  from Pothole" +
-                                    "join PotholeStatus as ph on Pothole.id = ph.Id ";
-            const string testQuery = "SELECT * FROM Pothole";
+            const string sqlQuery = "SELECT * FROM Pothole";
+
+            //const string testQuery = "SELECT * FROM Pothole Join PotholeStatus ps on ps.id = Pothole.id";
             try
             {
                 using(SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(testQuery, conn);
+                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
 
@@ -54,9 +54,7 @@ namespace Capstone.DAO
             pothole.Location = Convert.ToString(reader["Location"]);
             pothole.DateAdded = Convert.ToDateTime(reader["DateAdded"]);
             pothole.Description = Convert.ToString(reader["Description"]);
-            pothole.Status.Reported = Convert.ToBoolean(reader["Reported"]);
-            pothole.Status.InProgress = Convert.ToBoolean(reader["InProgress"]);
-            pothole.Status.Repaired = Convert.ToBoolean(reader["Repaired"]);
+            pothole.Status = (PotholeStatus)Convert.ToInt32(reader["Status"]);
 
             return pothole;
         }

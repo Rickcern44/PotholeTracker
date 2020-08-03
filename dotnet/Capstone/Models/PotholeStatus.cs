@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Capstone.Models
 {
-    public class PotholeStatus
+    public enum PotholeStatus
     {
-        public bool Reported { get; set; } = true;
-        public bool InProgress { get; set; } = false;
-        public bool Repaired { get; set; } = false;
+        Reported = 1,
+        InProgress,
+        Repaired 
     }
 }

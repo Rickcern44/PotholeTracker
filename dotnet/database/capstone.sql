@@ -25,39 +25,26 @@ CREATE TABLE users (
 )
 
 --Pothole Table
+
 CREATE TABLE [Pothole]
 (
- [Id]          int IDENTITY (1, 1) NOT NULL ,
- [Location]    nvarchar(100) NOT NULL ,
- [DateAdded]   datetime NOT NULL ,
- [Description] nvarchar(200) NOT NULL ,
+ [Id]          int IDENTITY (1, 1) NOT NULL,
+ [Location]    nvarchar(100) NOT NULL,
+ [DateAdded]   datetime NOT NULL,
+ [Description] nvarchar(200) NOT NULL,
+ Status int NOT NULL DEFAULT 1
 
 
  CONSTRAINT [PK_pothole] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 GO
 
--- [PotholeStatus]
-
-CREATE TABLE [PotholeStatus]
-(
- [Reported]   bit NOT NULL ,
- [InProgress] bit NOT NULL ,
- [Repaired]   bit NOT NULL ,
- [Id]         int NOT NULL ,
 
 
- CONSTRAINT [FK_30] FOREIGN KEY ([Id])  REFERENCES [Pothole]([Id])
-);
-GO
 
 
-CREATE NONCLUSTERED INDEX [fkIdx_30] ON [PotholeStatus] 
- (
-  [Id] ASC
- )
 
-GO
+
 
 
 --populate default data
@@ -72,4 +59,3 @@ INSERT INTO Pothole ([Location], DateAdded, [Description])
 	VALUES ('980 Athens Street, Cleveland, OH, 44107', '08/03/2020', 'Badderest Pothole')
 INSERT INTO Pothole ([Location], DateAdded, [Description])
 	VALUES ('564 Clark Street, Cleveland, OH, 44107', '08/03/2020', 'Badder Pothole')
-GO
