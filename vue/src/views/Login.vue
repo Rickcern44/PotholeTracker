@@ -31,20 +31,31 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
       <button type="submit">Sign in</button>
     </form>
+    <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
+      <ul>
+        <!-- All the potholes will go in here -->
+        <potholeCard class="card" v-bind:pothole="pothole"/>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+import api from '../services/APIService'
+import potholeCard from '../components/PotholeCard'
 
 export default {
   name: "login",
-  components: {},
+  components: {
+    potholeCard
+  },
   data() {
     return {
+      potholes: [],
       user: {
         username: "",
         password: ""
@@ -71,6 +82,14 @@ export default {
           }
         });
     }
+  },
+  created(){
+    api.getPublicPotholes().then(resp => {
+      this.potholes = resp.data
+    })
   }
 };
 </script>
+<style>
+
+</style>
