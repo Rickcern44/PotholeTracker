@@ -12,5 +12,6 @@ namespace Capstone.Models
         public string Location { get; set; }
         public DateTime DateAdded { get; set; }
         public string Description { get; set; }
+        public PotholeStatus Status { get; set; }
     }
 }

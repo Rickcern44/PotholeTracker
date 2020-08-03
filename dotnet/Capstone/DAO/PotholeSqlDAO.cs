@@ -20,14 +20,18 @@ namespace Capstone.DAO
         public List<Pothole> GetAllPotholes()
         {
             List<Pothole> potholes = new List<Pothole>();
-            const string sqlQuery = "SELECT * FROM Pothole";
+            const string sqlQuery = "select pothole.id, [Location], DateAdded, [Description], ph.InProgress, ph.Repaired, ph.Reported  from Pothole" +
+                                    "join PotholeStatus as ph on Pothole.id = ph.Id ";
+            const string testQuery = "SELECT * FROM Pothole";
             try
             {
                 using(SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
+                    SqlCommand cmd = new SqlCommand(testQuery, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
+
+
 
                     while (reader.Read())
                     {
@@ -41,7 +45,7 @@ namespace Capstone.DAO
             }
             return potholes;
         }
-        //The methods that convert the data from sql data types to C# Objects
+        //The method that convert the data from sql data types to C# Objects
         private Pothole PotholeData(SqlDataReader reader)
         {
             Pothole pothole = new Pothole();
@@ -50,18 +54,12 @@ namespace Capstone.DAO
             pothole.Location = Convert.ToString(reader["Location"]);
             pothole.DateAdded = Convert.ToDateTime(reader["DateAdded"]);
             pothole.Description = Convert.ToString(reader["Description"]);
+            pothole.Status.Reported = Convert.ToBoolean(reader["Reported"]);
+            pothole.Status.InProgress = Convert.ToBoolean(reader["InProgress"]);
+            pothole.Status.Repaired = Convert.ToBoolean(reader["Repaired"]);
 
             return pothole;
         }
-        //public PotholeStatus PotholeStatusData(SqlDataReader reader)
-        //{
-        //    PotholeStatus status = new PotholeStatus();
 
-        //    status.Reported = Convert.ToBoolean(reader["Reported"]);
-        //    status.InProgress = Convert.ToBoolean(reader["InProgress"]);
-        //    status.Repaired = Convert.ToBoolean(reader["Repaired"]);
-        //    return status;
-
-        //}
     }
 }

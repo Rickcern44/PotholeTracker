@@ -64,4 +64,12 @@ GO
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
 
+
+--Add a couple potholes
+INSERT INTO Pothole ([Location], DateAdded, [Description])
+	VALUES ('123 Main Street, Cleveland, OH, 44107', '08/03/2020', 'Bad Pothole')
+INSERT INTO Pothole ([Location], DateAdded, [Description])
+	VALUES ('980 Athens Street, Cleveland, OH, 44107', '08/03/2020', 'Badderest Pothole')
+INSERT INTO Pothole ([Location], DateAdded, [Description])
+	VALUES ('564 Clark Street, Cleveland, OH, 44107', '08/03/2020', 'Badder Pothole')
 GO
