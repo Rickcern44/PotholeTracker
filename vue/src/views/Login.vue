@@ -40,6 +40,7 @@
         <potholeCard class="card" v-bind:pothole="pothole"/>
       </ul>
     </div>
+    <router-link :to="{ name: 'report'}">Report A Pothole</router-link>
   </div>
 </template>
 
