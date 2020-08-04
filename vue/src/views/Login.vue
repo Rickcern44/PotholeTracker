@@ -34,11 +34,13 @@
       <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
       <button type="submit">Sign in</button>
     </form>
-    <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
-      <ul>
-        <!-- All the potholes will go in here -->
-        <potholeCard class="card" v-bind:pothole="pothole"/>
-      </ul>
+    <div class="content">
+      <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
+        <ul>
+          <!-- All the potholes will go in here -->
+          <potholeCard class="card" v-bind:pothole="pothole" />
+        </ul>
+      </div>
     </div>
     <router-link :to="{ name: 'report'}">Report A Pothole</router-link>
   </div>
@@ -46,51 +48,62 @@
 
 <script>
 import authService from "../services/AuthService";
-import api from '../services/APIService'
-import potholeCard from '../components/PotholeCard'
+import api from "../services/APIService";
+import potholeCard from "../components/PotholeCard";
 
 export default {
   name: "login",
   components: {
-    potholeCard
+    potholeCard,
   },
   data() {
     return {
       potholes: [],
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
+    },
   },
-  created(){
-    api.getPublicPotholes().then(resp => {
-      this.potholes = resp.data
-    })
-  }
+  created() {
+    api.getPublicPotholes().then((resp) => {
+      this.potholes = resp.data;
+    });
+  },
 };
 </script>
 <style>
-
+.content{
+  overflow-y: auto;
+  overflow-x:hidden ;
+  border: black solid 2px;
+  width: 500px;
+  height: 250px;
+}
+.card{
+  border: black solid 1px;
+  text-align: center;
+  margin: 10px;
+  }
 </style>

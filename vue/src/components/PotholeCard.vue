@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-      <p>{{`The pothole ID is :${pothole.id}`}}</p>
       <p>{{pothole.location}}</p>
       <p>{{statusString(pothole.status)}}</p>
+      <p>{{pothole.description}}</p>
       <p>{{pothole.dateAdded}}</p>
   </div>
 </template>

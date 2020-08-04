@@ -7,10 +7,19 @@
            <label for="streetName">Street Name:</label>
            <input required type="text" id="streetName" name="streetName" v-model="address.streetName" placeholder="Superior Ave"><br><br>
             <label for="zip">Zip Code:</label>
-           <input required type="text" id="zip" name="zip" v-model="address.zip" placeholder="44112"><br><br>
-           <label for="description">Pothole Description:</label>
-           <input required type="text" id="description" name="description"  v-model="pothole.description" placeholder="Tell us about the pothole"><br><br>
-           <input type="button" id="button" value="Submit" v-on:click="CreatePothole(pothole)">
+           <!-- <input required type="text" id="zip" name="zip" v-model="address.zip" placeholder="44112"><br><br>
+           <label for="description">Pothole Description:</label> -->
+           <label for="cars">Choose a car:</label>
+
+           <!-- This is the dropdown menu -->
+            <select id="cars" name="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select><br><br>
+           <input required type="text" id="description" name="description"  v-model="description" placeholder="Tell us about the pothole"><br><br>
+           <input type="button" id="button" value="Submit" v-on:click="CreatePothole()">
        </form>
     </div>
 </template>
@@ -27,19 +36,31 @@ export default {
                 state: "OH",
                 zip: ""
             },
-            pothole:{
-                location: "",
-                description: ""
-            }
+        description: ""
         }
     },
+    props:{
+        location: String
+    },
     methods:{
-        CreatePothole(newPothole){
-            APIService.reportPothole(newPothole)
+        CreatePothole(){
+                let pothole = {
+
+              location: this.parseAddress,  
+                
+                description: this.description
+            }
+            APIService.reportPothole(pothole)
             this.$router.push('/')
         },
-    }
+    },
+    computed:{
+        parseAddress(){
+            return `${this.address.streetNumber} ${this.address.streetName} ${this.address.city}, ${this.address.state} ${this.address.zip}`
 
+        }
+
+    }
 }
 </script>
 

@@ -11,6 +11,12 @@ namespace Capstone.Models
         public  int Id { get;  set; }
         public string Location { get; set; }
         public DateTime DateAdded { get; set; }
+        public string DateAddedString {
+            get
+            {
+               return this.DateAdded.ToString();
+            } 
+        }
         public string Description { get; set; }
         public PotholeStatus Status { get; set; }
     }
