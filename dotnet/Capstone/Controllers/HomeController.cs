@@ -25,5 +25,11 @@ namespace Capstone.Controllers
             List<Pothole> potholes = potholeDAO.GetAllPotholes();
             return potholes;
         }
+        [HttpPost("Report")]
+        public ActionResult<Pothole> ReportPothole(Pothole pothole)
+        {
+            Pothole pothole1 = potholeDAO.ReportApothole(pothole);
+            return pothole1;
+        }
     }
 }

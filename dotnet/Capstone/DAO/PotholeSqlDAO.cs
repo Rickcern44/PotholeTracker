@@ -45,6 +45,33 @@ namespace Capstone.DAO
             }
             return potholes;
         }
+        public Pothole ReportApothole(Pothole pothole)
+        {
+            string sqlQuery = "INSERT INTO Pothole([Location], DateAdded, [Description], [Status]) VALUES(@location, @dateAdded, @description, @status) SELECT @@IDENTITY";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
+                    //Add all the params
+                    cmd.Parameters.AddWithValue("@location", pothole.Location);
+                    cmd.Parameters.AddWithValue("@dateAdded", pothole.DateAdded);
+                    cmd.Parameters.AddWithValue("@description", pothole.Description);
+                    cmd.Parameters.AddWithValue("@status", pothole.Status);
+
+                    pothole.Id = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            return pothole;
+        }
         //The method that convert the data from sql data types to C# Objects
         private Pothole PotholeData(SqlDataReader reader)
         {
