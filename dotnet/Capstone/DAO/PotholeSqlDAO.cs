@@ -47,7 +47,9 @@ namespace Capstone.DAO
         }
         public Pothole ReportApothole(Pothole pothole)
         {
-            string sqlQuery = "INSERT INTO Pothole([Location], DateAdded, [Description]) VALUES(@location, @dateAdded, @description) SELECT @@IDENTITY";
+            //TODO: Fix the format of the date time
+            pothole.DateAdded = DateTime.Now;
+            string sqlQuery = "INSERT INTO Pothole([Location], DateAdded, [Description], Status) VALUES(@location, @dateAdded, @description, @status) SELECT @@IDENTITY";
 
             try
             {
@@ -59,9 +61,9 @@ namespace Capstone.DAO
                     //Add all the params
                     cmd.Parameters.AddWithValue("@location", pothole.Location);
                     //cmd.Parameters.AddWithValue("@dateAdded", pothole.DateAdded);
-                    pothole.DateAdded = DateTime.Now;
+                    cmd.Parameters.AddWithValue("@dateAdded", pothole.DateAdded);
                     cmd.Parameters.AddWithValue("@description", pothole.Description);
-                    //cmd.Parameters.AddWithValue("@status", pothole.Status);
+                    cmd.Parameters.AddWithValue("@status", pothole.Status);
 
                     pothole.Id = Convert.ToInt32(cmd.ExecuteScalar());
                 }
