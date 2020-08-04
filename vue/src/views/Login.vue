@@ -1,8 +1,11 @@
 <template>
   <div class="grid">
+      <img class="picture" alt="Image of Cleveland" src="https://cleveland.feb.gov/wp-content/uploads/2018/08/keepbig-homeslide1-cleveland-background1.jpg"/>
+    
+    
     <div id="login" class="text-center">
       <form class="form-signin" @submit.prevent="login">
-        <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Cleveland Pothole Tracker</h1>
         <div
           class="alert alert-danger"
           role="alert"
@@ -35,14 +38,17 @@
         <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
         <button type="submit">Sign in</button>
       </form>
-      <div class="content">
+      <p class="pothole-title">Active Potholes</p>
+    <div class="content">
+      
         <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
+          
           <ul>
             <!-- All the potholes will go in here -->
             <potholeCard class="card" v-bind:pothole="pothole" />
           </ul>
         </div>
-      </div>
+    </div>
       <router-link :to="{ name: 'report'}">Report A Pothole</router-link>
     </div>
   </div>
@@ -99,7 +105,8 @@ export default {
 .grid{
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-areas: "header header" "potholes map";
+  grid-template-rows: auto 100px 500px 100px;
+  grid-template-areas: "picture picture" "title title" "pothole map" "footer footer";
   max-height: 1vh;
 }
 .content {
@@ -107,11 +114,27 @@ export default {
   overflow-x: hidden;
   border: black solid 2px;
   width: 500px;
-  height: 250px;
+  height: 600px;
+  grid-area: pothole;
+}
+.pothole-title{
+  grid-area: pothole;
+}
+#login{
+  grid-area: title;
+  text-align: center;
 }
 .card {
   border: black solid 1px;
   text-align: center;
   margin: 10px;
+}
+.picture{
+grid-area: picture;
+height: 300px;
+margin: 0 auto;
+}
+.sr-only{
+  padding: 5px;
 }
 </style>
