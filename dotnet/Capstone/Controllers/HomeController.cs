@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Capstone.DAO;
 using Capstone.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,7 @@ namespace Capstone.Controllers
     public class HomeController : ControllerBase
     {
         private IPotholeDAO potholeDAO;
-        public HomeController( IPotholeDAO potholeDAO)
+        public HomeController(IPotholeDAO potholeDAO)
         {
             this.potholeDAO = potholeDAO;
         }
@@ -24,12 +25,19 @@ namespace Capstone.Controllers
         {
             List<Pothole> potholes = potholeDAO.GetAllPotholes();
             return potholes;
+
         }
         [HttpPost("Report")]
         public ActionResult<Pothole> ReportPothole(Pothole pothole)
         {
             Pothole pothole1 = potholeDAO.ReportApothole(pothole);
             return pothole1;
+        }
+        [HttpPut("Update")]
+        public ActionResult<Pothole> UpdateAPothole(Pothole pothole, int status, int id)
+        {
+            Pothole updatedPothole = potholeDAO.UpdateAPothole( pothole, status, id);
+            return updatedPothole;
         }
     }
 }

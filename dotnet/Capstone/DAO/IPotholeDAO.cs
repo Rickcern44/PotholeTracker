@@ -7,5 +7,6 @@ namespace Capstone.DAO
     {
         List<Pothole> GetAllPotholes();
         Pothole ReportApothole(Pothole pothole);
+        Pothole UpdateAPothole(Pothole pothole,int status, int id);
     }
 }

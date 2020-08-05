@@ -39,9 +39,9 @@ namespace Capstone.DAO
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             return potholes;
         }
@@ -76,6 +76,29 @@ namespace Capstone.DAO
             }
             return pothole;
         }
+        //TODO: Fix this function to be cleaner
+        public Pothole UpdateAPothole(Pothole pothole, int status, int id)
+        {
+            string sqlQuery = "UPDATE Pothole SET Status = @status  WHERE Id = @id";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
+                    cmd.Parameters.AddWithValue("@status", status);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);     
+            }
+            return pothole;
+
+        }
         //The method that convert the data from sql data types to C# Objects
         private Pothole PotholeData(SqlDataReader reader)
         {
@@ -89,6 +112,8 @@ namespace Capstone.DAO
 
             return pothole;
         }
+
+
 
     }
 }

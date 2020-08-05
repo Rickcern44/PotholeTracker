@@ -19,5 +19,7 @@ namespace Capstone.Models
         }
         public string Description { get; set; }
         public PotholeStatus Status { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
