@@ -73,6 +73,7 @@ export default {
                 description: this.description
             }
             APIService.reportPothole(pothole)
+            APIService.getPublicPotholes();
             this.$router.push('/')
         },
     },

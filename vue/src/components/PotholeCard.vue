@@ -3,7 +3,7 @@
       <p>{{pothole.location}}</p>
       <p>{{statusString(pothole.status)}}</p>
       <p>{{pothole.description}}</p>
-      <p>{{pothole.dateAdded}}</p>
+      <p>{{pothole.dateAddedString}}</p>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ statusString(status){
     }else {
       return 'Work Completed'
     } 
-  }
+  },
 },
 computed:{
   
@@ -30,5 +30,4 @@ computed:{
 </script>
 
 <style>
-
 </style>
