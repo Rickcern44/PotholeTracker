@@ -3,14 +3,14 @@
         <div id="container">
             <h1>Report A New Pothole</h1> 
             <form action.prevent="submit">
-            <label for="streetNumber">Street Number:</label>
+            <label class="formlabel" for="streetNumber">Street Number:</label>
             <input required type="text" id="streetNumber" name="streetNumber" v-model="address.streetNumber" placeholder="123"><br><br>
-            <label for="streetName">Street Name:</label>
+            <label class="formlabel" for="streetName">Street Name:</label>
             <input required type="text" id="streetName" name="streetName" v-model="address.streetName" placeholder="Superior Ave"><br><br>
             <!-- <label for="zip">Zip Code:</label> -->
            <!-- <input required type="text" id="zip" name="zip" v-model="address.zip" placeholder="44112"><br><br>
            <label for="description">Pothole Description:</label> -->
-            <label for="zip">Choose Zip Code:</label>
+            <label class="formlabel" for="zip">Choose Zip Code:</label>
 
            <!-- This is the dropdown menu -->
             <select id="zips" name="Zips" v-model="address.zip">
@@ -90,16 +90,22 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
+
     h1{
         text-align: center;
-        color:red;
+        color:white;
+        font-weight: bolder;
+        text-shadow: black 2px 2px;
+        
     }
     form{
         text-align: center;
-        background: white;
+        background: lightgray;
         width: 30%;
         padding: 40px;
         margin: 10px auto;
+        border-radius: 30px;
 
 
     }
@@ -109,15 +115,28 @@ export default {
         justify-content: center;
         padding: 5px;
         border: black solid 1px;
+        box-shadow: black 2px 2px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: bolder;
+
     } 
     #container{
         display:flex;
         flex-direction: column;
     }
     body{
-        background-image: url(https://rockford-main.s3.us-east-2.amazonaws.com/s3fs-public/pothole_interstate_highway_winter%20%282%29.jpg);
+        background-image: url(https://nextconf.eu/wp-content/uploads/2018/12/marc-olivier-jodoin-502572-unsplash-1280x0-c-default.jpg);
         background-size: cover;
         background-attachment: fixed;
+        height: 100vh;
+        font-family: 'Oswald', sans-serif;
+        
+        
+    }
+    .formlabel{
+        padding-right: 5px;
+        font-weight:bold;
     }
 
 </style>

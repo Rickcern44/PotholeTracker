@@ -4,7 +4,7 @@
       <img
         id="header-image"
         alt="Image of Cleveland"
-        src="https://cleveland.feb.gov/wp-content/uploads/2018/08/keepbig-homeslide1-cleveland-background1.jpg"
+        src="https://images.fineartamerica.com/images-medium-large-5/cleveland-skyline-panorama-sunset-aged-pixel.jpg"
       />
     </header>
     <!-- The page title -->
@@ -119,6 +119,8 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 *{
   box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
 }
 
 header img {
@@ -151,7 +153,8 @@ header img {
   background-color: red;
   height: 60px;
   grid-area: list;
-  box-shadow: black 3px 3px;
+  box-shadow: black 2px 2px;
+  border-radius: 5px;
 }
 #login{
   display: flex;
