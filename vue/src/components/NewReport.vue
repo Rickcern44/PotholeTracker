@@ -1,15 +1,16 @@
 <template>
-    <div>
-       <h1>Report A New Pothole</h1> 
-       <form action.prevent="submit">
-           <label for="streetNumber">Street Number:</label>
-           <input required type="text" id="streetNumber" name="streetNumber" v-model="address.streetNumber" placeholder="123"><br><br>
-           <label for="streetName">Street Name:</label>
-           <input required type="text" id="streetName" name="streetName" v-model="address.streetName" placeholder="Superior Ave"><br><br>
+    <body>
+        <div id="container">
+            <h1>Report A New Pothole</h1> 
+            <form action.prevent="submit">
+            <label for="streetNumber">Street Number:</label>
+            <input required type="text" id="streetNumber" name="streetNumber" v-model="address.streetNumber" placeholder="123"><br><br>
+            <label for="streetName">Street Name:</label>
+            <input required type="text" id="streetName" name="streetName" v-model="address.streetName" placeholder="Superior Ave"><br><br>
             <!-- <label for="zip">Zip Code:</label> -->
            <!-- <input required type="text" id="zip" name="zip" v-model="address.zip" placeholder="44112"><br><br>
            <label for="description">Pothole Description:</label> -->
-           <label for="zip">Choose Zip Code:</label>
+            <label for="zip">Choose Zip Code:</label>
 
            <!-- This is the dropdown menu -->
             <select id="zips" name="Zips" v-model="address.zip">
@@ -39,11 +40,12 @@
                 <option value="44142">44142</option>
                 <option value="44144">44144</option>
 
-            </select><br><br>
-           <input required type="text" id="description" name="description"  v-model="description" placeholder="Tell us about the pothole"><br><br>
-           <input type="button" id="button" value="Submit" v-on:click="CreatePothole()">
-       </form>
-    </div>
+                </select><br><br>
+                <input required type="text" id="description" name="description"  v-model="description" placeholder="Tell us about the pothole"><br><br>
+                <input type="button" id="button" value="Submit" v-on:click="CreatePothole()">
+                </form>
+            </div>
+    </body>
 </template>
 
 <script>
@@ -73,7 +75,11 @@ export default {
                 description: this.description
             }
             APIService.reportPothole(pothole)
+<<<<<<< Updated upstream
             APIService.getPublicPotholes();
+=======
+            APIService.getPublicPotholes()
+>>>>>>> Stashed changes
             this.$router.push('/')
         },
     },
@@ -87,6 +93,35 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    h1{
+        text-align: center;
+        color:red;
+    }
+    form{
+        text-align: center;
+        background: white;
+        width: 30%;
+        padding: 40px;
+        margin: 10px auto;
+
+
+    }
+    #button{
+        background-color:lawngreen;
+        text-align: center;
+        justify-content: center;
+        padding: 5px;
+        border: black solid 1px;
+    } 
+    #container{
+        display:flex;
+        flex-direction: column;
+    }
+    body{
+        background-image: url(https://rockford-main.s3.us-east-2.amazonaws.com/s3fs-public/pothole_interstate_highway_winter%20%282%29.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
 </style>

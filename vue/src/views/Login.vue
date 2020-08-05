@@ -63,7 +63,7 @@
         />
       </div>
     </div>
-    <footer id="footer">footer</footer>
+    <!-- <footer id="footer">footer</footer> -->
     <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
 </body>
 </template>
