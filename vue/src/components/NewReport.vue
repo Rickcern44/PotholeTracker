@@ -75,10 +75,7 @@ export default {
                 description: this.description
             }
             APIService.reportPothole(pothole)
-<<<<<<< Updated upstream
             APIService.getPublicPotholes();
-=======
->>>>>>> Stashed changes
             this.$router.push('/')
         },
     },
