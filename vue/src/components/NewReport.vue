@@ -78,7 +78,6 @@ export default {
 <<<<<<< Updated upstream
             APIService.getPublicPotholes();
 =======
-            APIService.getPublicPotholes()
 >>>>>>> Stashed changes
             this.$router.push('/')
         },
