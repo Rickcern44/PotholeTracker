@@ -1,57 +1,71 @@
 <template>
-  <div class="grid">
-      <img class="picture" alt="Image of Cleveland" src="https://cleveland.feb.gov/wp-content/uploads/2018/08/keepbig-homeslide1-cleveland-background1.jpg"/>
-    
-    
-    <div id="login" class="text-center">
-      <form class="form-signin" @submit.prevent="login">
-        <h1 class="h3 mb-3 font-weight-normal">Cleveland Pothole Tracker</h1>
-        <div
-          class="alert alert-danger"
-          role="alert"
-          v-if="invalidCredentials"
-        >Invalid username and password!</div>
-        <div
-          class="alert alert-success"
-          role="alert"
-          v-if="this.$route.query.registration"
-        >Thank you for registering, please sign in.</div>
-        <label for="username" class="sr-only">Username</label>
-        <input
-          type="text"
-          id="username"
-          class="form-control"
-          placeholder="Username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-        <label for="password" class="sr-only">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          placeholder="Password"
-          v-model="user.password"
-          required
-        />
-        <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
-        <button type="submit">Sign in</button>
-      </form>
-      <p class="pothole-title">Active Potholes</p>
-    <div class="content">
-      
+  <body>
+    <header>
+      <img
+        id="header-image"
+        alt="Image of Cleveland"
+        src="https://cleveland.feb.gov/wp-content/uploads/2018/08/keepbig-homeslide1-cleveland-background1.jpg"
+      />
+    </header>
+    <!-- The page title -->
+    <h1 id="title" class="h3 mb-3 font-weight-normal">Cleveland Pothole Tracker</h1>
+    <div id="container">
+      <!-- Login form div -->
+      <div id="login" class="text-center">
+        <form class="form-signin" @submit.prevent="login">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            v-if="invalidCredentials"
+          >Invalid username and password!</div>
+          <div
+            class="alert alert-success"
+            role="alert"
+            v-if="this.$route.query.registration"
+          >Thank you for registering, please sign in.</div>
+          <label for="username" class="sr-only">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+          <label for="password" class="sr-only">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            v-model="user.password"
+            required
+          />
+          <button type="submit">Sign in</button>
+        </form>
+        </div>
+      <button id="report-button">
+        <!-- TODO: Make the button text white -->
+        <router-link id="rlink"  :to="{ name: 'report'}">Report A Pothole</router-link>
+      </button>
+      <div id="content">
         <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
-          
           <ul>
-            <!-- All the potholes will go in here -->
             <potholeCard class="card" v-bind:pothole="pothole" />
           </ul>
         </div>
+      </div>
+      <div id="map">
+        <img id="test-map"
+          src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
+          alt="The google map"
+        />
+      </div>
     </div>
-      <router-link :to="{ name: 'report'}">Report A Pothole</router-link>
-    </div>
-  </div>
+    <footer id="footer">footer</footer>
+    <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+</body>
 </template>
 
 <script>
@@ -102,39 +116,74 @@ export default {
 };
 </script>
 <style>
-.grid{
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
+*{
+  box-sizing: border-box;
+}
+
+header img {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#title {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+}
+#container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto 100px 500px 100px;
-  grid-template-areas: "picture picture" "title title" "pothole map" "footer footer";
-  max-height: 1vh;
+  grid-template-columns: 1.5fr 2fr;
+  row-gap: 5px;
+  column-gap: 5px;
+  align-items: center;
+  grid-template-areas:
+  "login map"
+  "list map";
 }
-.content {
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: black solid 2px;
-  width: 500px;
-  height: 600px;
-  grid-area: pothole;
-}
-.pothole-title{
-  grid-area: pothole;
+
+#report-button{
+  display: flex;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  justify-content: center;
+  align-self: flex-start;
+  font-weight: 800;
+  background-color: red;
+  height: 60px;
+  grid-area: list;
+  box-shadow: black 3px 3px;
 }
 #login{
-  grid-area: title;
-  text-align: center;
+  display: flex;
+  grid-area: login;
+  justify-content: flex-start;
 }
-.card {
-  border: black solid 1px;
-  text-align: center;
-  margin: 10px;
+#content{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: flex-end;
+grid-area: list;
+border: black solid 3px;
+overflow-y: auto;
+overflow-x: hidden ;
+height: 200px;
+text-align: center;
+
 }
-.picture{
-grid-area: picture;
-height: 300px;
-margin: 0 auto;
+#map{
+  display: flex;
+  height: 80%;
+  width: 100%;
+  justify-content: center;
+  grid-area: map;
 }
-.sr-only{
-  padding: 5px;
+.card{
+  border-bottom: black solid 1px;
 }
+#rlink{
+  color: white;
+}
+
+
 </style>
