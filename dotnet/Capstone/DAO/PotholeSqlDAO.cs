@@ -48,6 +48,7 @@ namespace Capstone.DAO
         public Pothole ReportApothole(Pothole pothole)
         {
             //TODO: Fix the format of the date time
+            pothole.Status = (PotholeStatus)1;
             pothole.DateAdded = DateTime.Now;
             string sqlQuery = "INSERT INTO Pothole([Location], DateAdded, [Description], Status) VALUES(@location, @dateAdded, @description, @status) SELECT @@IDENTITY";
 
