@@ -14,7 +14,7 @@ namespace Capstone.Models
         public string DateAddedString {
             get
             {
-               return this.DateAdded.ToString();
+               return this.DateAdded.ToString("f");
             } 
         }
         public string Description { get; set; }
