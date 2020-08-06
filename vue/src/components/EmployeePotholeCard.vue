@@ -5,7 +5,7 @@
       <p id="status">{{statusString(pothole.status)}}</p>
       <p>{{pothole.description}}</p>
       <p>{{pothole.dateAddedString}}</p>
-      <p v-if="checkSeverity(pothole.severity)" id="severity">{{pothole.severity}}</p>
+      <p v-if="checkSeverity(pothole.severity)" id="severity">Severity: {{pothole.severity}}</p>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ statusString(status){
     } 
 },
     checkSeverity(severity) {
-        if (severity === null) {
+        if (severity === null || severity === 0) {
             return false;
         }
         else {
