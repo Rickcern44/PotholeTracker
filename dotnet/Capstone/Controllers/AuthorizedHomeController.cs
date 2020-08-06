@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace Capstone.Controllers
 {
@@ -34,11 +35,23 @@ namespace Capstone.Controllers
             Pothole updatedPothole = potholeDAO.UpdateAPothole(pothole, status, id);
             return updatedPothole;
         }
+        [HttpPut("Severity/{id}/{severity}")]
+        public ActionResult<string> UpdateSeverity(int id, int severity)
+        {
+            string message = "";
+            return message = potholeDAO.UpdatePotholeSeverity(id, severity);
+        }
         [HttpDelete("Pothole/{id}")]
         public ActionResult<string> DeletePothole(int id)
         {
             string message = "";
             return message = potholeDAO.DeletePothole(id);
+        }
+        [HttpPut("Assign/{userId}/{potholeId}")]
+        public ActionResult<string> AssignEmployee(int userId, int potholeId)
+        {
+            string message = "";
+            return message = potholeDAO.UpdateAssignedEmployee(userId, potholeId);
         }
     }
 }

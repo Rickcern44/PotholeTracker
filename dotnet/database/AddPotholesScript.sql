@@ -3,6 +3,7 @@ SELECT * FROM users u
 
 -- UPDATE Pothole 
 --     SET user_id = 1
+--     WHERE Id = 1
 
 SELECT * from Pothole
 

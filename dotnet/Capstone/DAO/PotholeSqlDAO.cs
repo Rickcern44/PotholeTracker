@@ -1,4 +1,5 @@
 ﻿using Capstone.Models;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -98,6 +99,55 @@ namespace Capstone.DAO
             }
             return pothole;
 
+        }
+        //Update pothole Severity 
+        public string UpdatePotholeSeverity(int id, int severity)
+        {
+            const string sqlQuery = "UPDATE Pothole SET Severity = @severity  WHERE Id = @id";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
+                    cmd.Parameters.AddWithValue("@severity", severity);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    
+                    cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex); 
+            }
+            return $"Pothole {id} has been updated to severity {severity}";
+        }
+        //Update Potholes assignes employee
+        public string UpdateAssignedEmployee(int userId, int potholeId)
+        {
+            const string sqlQuery = "UPDATE Pothole SET user_id = @userId WHERE Id = @potholeId";
+
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@potholeId", potholeId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+            return $"Pothole number {potholeId} has been assigned to employee number {userId}";
         }
         //Delete
         public string DeletePothole(int id)
