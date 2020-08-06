@@ -182,7 +182,8 @@ namespace Capstone.DAO
             pothole.DateAdded = Convert.ToDateTime(reader["DateAdded"]);
             pothole.Description = Convert.ToString(reader["Description"]);
             pothole.Status = (PotholeStatus)Convert.ToInt32(reader["Status"]);
-
+            pothole.Severity = Convert.ToInt32(reader["Severity"]);
+    
             return pothole;
         }
 

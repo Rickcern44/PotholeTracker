@@ -17,6 +17,7 @@ namespace Capstone.Models
                return this.DateAdded.ToString("f");
             } 
         }
+        public int Severity { get; set; }
         public string Description { get; set; }
         public PotholeStatus Status { get; set; }
         public double Latitude { get; set; }
