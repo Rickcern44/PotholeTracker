@@ -4,11 +4,11 @@
       <img
         id="header-image"
         alt="Image of Cleveland"
-        src="https://images.fineartamerica.com/images-medium-large-5/cleveland-skyline-panorama-sunset-aged-pixel.jpg"
+        src="https://hoodline-assets.imgix.net/metros/cleveland.jpg"
       />
     </header>
     <!-- The page title -->
-    <h1 id="title" class="h3 mb-3 font-weight-normal">Cleveland Pothole Tracker</h1>
+    <h1 id="title" class="h3 mb-3 font-weight-normal">The Cleveland Pothole Tracker</h1>
     <div id="container">
       <!-- Login form div -->
       <div id="login" class="text-center">
@@ -124,7 +124,8 @@ export default {
 }
 
 header img {
-  height: 250px;
+  /* increased height from 250px */
+  height: 375px;
   width: 100%;
   margin-bottom: 10px;
 }
