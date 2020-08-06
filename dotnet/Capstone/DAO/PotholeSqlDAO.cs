@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using RestSharp;
+using RestSharp.Extensions;
 
 namespace Capstone.DAO
 {
@@ -175,6 +177,8 @@ namespace Capstone.DAO
         //The method that convert the data from sql data types to C# Objects
         private Pothole PotholeData(SqlDataReader reader)
         {
+            //Location location = ParseAddress(Convert.ToString(reader["Location"]));
+            //Result result = ParseAddress(Convert.ToString(reader["Location"]));
             Pothole pothole = new Pothole();
 
             pothole.Id = Convert.ToInt32(reader["Id"]);
@@ -183,8 +187,24 @@ namespace Capstone.DAO
             pothole.Description = Convert.ToString(reader["Description"]);
             pothole.Status = (PotholeStatus)Convert.ToInt32(reader["Status"]);
             pothole.Severity = Convert.ToInt32(reader["Severity"]);
+            //pothole.LatLong = location;
+            
     
             return pothole;
+        }
+
+        private Result ParseAddress(string address)
+        {
+            string API_URL = "https://maps.googleapis.com/maps/api/geocode";
+            string requestString = $"/json?address={address}&key=AIzaSyAlcsTIh-EKItsXyrIWjP2N2pYDugC_6Dc";
+
+            RestClient client = new RestClient(API_URL);
+            RestRequest rest = new RestRequest(requestString);
+            IRestResponse<Result> response = client.Get<Result>(rest);
+
+            return response.Data;
+
+
         }
 
 
