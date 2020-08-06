@@ -1,4 +1,10 @@
-SELECT * FROM Pothole
+SELECT * FROM users u
+    JOIN Pothole p on u.user_id = p.user_id
+
+-- UPDATE Pothole 
+--     SET user_id = 1
+
+SELECT * from Pothole
 
 -- DELETE FROM Pothole 
 
@@ -37,5 +43,9 @@ INSERT INTO Pothole ([Location], DateAdded, [Description])
 
 INSERT INTO Pothole ([Location], DateAdded, [Description])
     VALUES ('601 Erieside Ave, Cleveland, OH 441144', '07/19/2020', 'Seeing that this is actually a bridk road. I think it may just be missing bricks but I think it still counts' )
+
+UPDATE Pothole
+    SET Status = 3 
+    WHERE Id = 19
 
     

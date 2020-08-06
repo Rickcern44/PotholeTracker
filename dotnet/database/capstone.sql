@@ -14,42 +14,55 @@ GO
 USE PotholeTracker
 GO
 
---create tables
-CREATE TABLE users (
-	user_id int IDENTITY(1,1) NOT NULL,
-	username varchar(50) NOT NULL,
-	password_hash varchar(200) NOT NULL,
-	salt varchar(200) NOT NULL,
-	user_role varchar(50) NOT NULL
-	CONSTRAINT PK_user PRIMARY KEY (user_id)
-)
+-- ************************************** [Users]
 
---Pothole Table
+CREATE TABLE [Users]
+(
+ [user_id]      int IDENTITY (1,1) NOT NULL ,
+ [username]     nvarchar(50) NOT NULL ,
+ [password_hash] nvarchar(50) NOT NULL ,
+ [salt]         nvarchar(50) NOT NULL ,
+ [user_role]    nvarchar(50) NOT NULL ,
+ FirstName nvarchar(100) NOT NULL,
+ LastName nvarchar(100) NOT NULL
+
+
+ CONSTRAINT [PK_users] PRIMARY KEY CLUSTERED ([user_id] ASC)
+);
+GO
+
+-- ************************************** [Pothole]
 
 CREATE TABLE [Pothole]
 (
- [Id]          int IDENTITY (1, 1) NOT NULL,
- [Location]    nvarchar(100) NOT NULL,
- [DateAdded]   datetime NOT NULL,
- [Description] nvarchar(200) NOT NULL,
- Status int NOT NULL DEFAULT 1
+ [Id]          int IDENTITY (1, 1) NOT NULL ,
+ [Location]    nvarchar(100) NOT NULL ,
+ [DateAdded]   datetime NOT NULL ,
+ [Description] nvarchar(200) NOT NULL ,
+ [Status]      int NOT NULL DEFAULT 1 ,
+ [Severity]    int NOT NULL DEFAULT 0,
+ [user_id]     int ,
 
 
- CONSTRAINT [PK_pothole] PRIMARY KEY CLUSTERED ([Id] ASC)
+ CONSTRAINT [PK_pothole] PRIMARY KEY CLUSTERED ([Id] ASC),
+ CONSTRAINT [FK_109] FOREIGN KEY ([user_id])  REFERENCES [Users]([user_id])
 );
+GO
+
+
+CREATE NONCLUSTERED INDEX [fkIdx_109] ON [Pothole] 
+ (
+  [user_id] ASC
+ )
+
 GO
 
 
 
 
-
-
-
-
-
 --populate default data
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+INSERT INTO users (username, password_hash, salt, user_role, FirstName, LastName) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user', 'Joe', 'Smith');
+INSERT INTO users (username, password_hash, salt, user_role, FirstName, LastName) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin', 'Jane', 'Smith');
 
 
 --Add a couple potholes
