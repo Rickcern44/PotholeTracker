@@ -33,11 +33,6 @@ namespace Capstone.Controllers
             Pothole pothole1 = potholeDAO.ReportApothole(pothole);
             return pothole1;
         }
-        [HttpPut("Update")]
-        public ActionResult<Pothole> UpdateAPothole(Pothole pothole, int status, int id)
-        {
-            Pothole updatedPothole = potholeDAO.UpdateAPothole( pothole, status, id);
-            return updatedPothole;
-        }
+
     }
 }

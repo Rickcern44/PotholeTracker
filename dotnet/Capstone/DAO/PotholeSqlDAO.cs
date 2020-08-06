@@ -76,7 +76,7 @@ namespace Capstone.DAO
             }
             return pothole;
         }
-        //TODO: Fix this function to be cleaner
+        //TODO: Fix this function to be more effeciant
         public Pothole UpdateAPothole(Pothole pothole, int status, int id)
         {
             string sqlQuery = "UPDATE Pothole SET Status = @status  WHERE Id = @id";
@@ -87,8 +87,8 @@ namespace Capstone.DAO
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sqlQuery, conn);
-                    cmd.Parameters.AddWithValue("@status", status);
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@status", pothole.Status);
+                    cmd.Parameters.AddWithValue("@id", pothole.Id);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -98,6 +98,29 @@ namespace Capstone.DAO
             }
             return pothole;
 
+        }
+        //Delete
+        public string DeletePothole(int id)
+        {
+            string sqlQuery = "DELETE FROM Pothole WHERE Id = @id";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlQuery, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex); ;
+            }
+            return $"Pothole Numer {id} was Deleted";
         }
         //The method that convert the data from sql data types to C# Objects
         private Pothole PotholeData(SqlDataReader reader)

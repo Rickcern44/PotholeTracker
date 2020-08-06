@@ -7,10 +7,11 @@ using Capstone.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 
 namespace Capstone.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("/")]
     [ApiController]
     public class AuthorizedHomeController : ControllerBase
@@ -27,6 +28,17 @@ namespace Capstone.Controllers
             List<Pothole> potholes = potholeDAO.GetAllPotholes();
             return potholes;
         }
-
+        [HttpPut("Update")]
+        public ActionResult<Pothole> UpdateAPothole(Pothole pothole, int status, int id)
+        {
+            Pothole updatedPothole = potholeDAO.UpdateAPothole(pothole, status, id);
+            return updatedPothole;
+        }
+        [HttpDelete("Pothole/{id}")]
+        public ActionResult<string> DeletePothole(int id)
+        {
+            string message = "";
+            return message = potholeDAO.DeletePothole(id);
+        }
     }
 }
