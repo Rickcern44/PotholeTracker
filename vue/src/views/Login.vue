@@ -1,70 +1,71 @@
 <template>
-  <body>
-    <header>
-      <img
-        id="header-image"
-        alt="Image of Cleveland"
-        src="https://hoodline-assets.imgix.net/metros/cleveland.jpg"
-      />
-    </header>
-    <!-- The page title -->
-    <h1 id="title" class="h3 mb-3 font-weight-normal">The Cleveland Pothole Tracker</h1>
-    <div id="container">
-      <!-- Login form div -->
-      <div id="login" class="text-center">
-        <form class="form-signin" @submit.prevent="login">
-          <div
-            class="alert alert-danger"
-            role="alert"
-            v-if="invalidCredentials"
-          >Invalid username and password!</div>
-          <div
-            class="alert alert-success"
-            role="alert"
-            v-if="this.$route.query.registration"
-          >Thank you for registering, please sign in.</div>
-          <label for="username" class="sr-only">Username</label>
-          <input
-            type="text"
-            id="username"
-            class="form-control"
-            placeholder="Username"
-            v-model="user.username"
-            required
-            autofocus
-          />
-          <label for="password" class="sr-only">Password</label>
-          <input
-            type="password"
-            id="password"
-            class="form-control"
-            placeholder="Password"
-            v-model="user.password"
-            required
-          />
-          <button type="submit">Sign in</button>
-        </form>
-        </div>
-      <button id="report-button">
-        <!-- TODO: Make the button text white -->
-        <router-link id="rlink"  :to="{ name: 'report'}">Report A Pothole</router-link>
-      </button>
-      <div id="content">
-        <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
-          <ul>
-            <potholeCard class="card" v-bind:pothole="pothole" />
-          </ul>
-        </div>
-      </div>
-      <div id="map">
-        <img id="test-map"
-          src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
-          alt="The google map"
+<body>
+  <header>
+    <img
+      id="header-image"
+      alt="Image of Cleveland"
+      src="https://hoodline-assets.imgix.net/metros/cleveland.jpg"
+    />
+  </header>
+  <!-- The page title -->
+  <h1 id="title" class="h3 mb-3 font-weight-normal">The Cleveland Pothole Tracker</h1>
+  <div id="container">
+    <!-- Login form div -->
+    <div id="login" class="text-center">
+      <form class="form-signin" @submit.prevent="login">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          v-if="invalidCredentials"
+        >Invalid username and password!</div>
+        <div
+          class="alert alert-success"
+          role="alert"
+          v-if="this.$route.query.registration"
+        >Thank you for registering, please sign in.</div>
+        <label for="username" class="sr-only">Username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          placeholder="Username"
+          v-model="user.username"
+          required
+          autofocus
         />
+        <label for="password" class="sr-only">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Password"
+          v-model="user.password"
+          required
+        />
+        <button type="submit">Sign in</button>
+      </form>
+    </div>
+    <button id="report-button">
+      <!-- TODO: Make the button text white -->
+      <router-link id="rlink" :to="{ name: 'report'}">Report A Pothole</router-link>
+    </button>
+    <div id="content">
+      <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
+        <ul>
+          <potholeCard class="card" v-bind:pothole="pothole" />
+        </ul>
       </div>
     </div>
-    <!-- <footer id="footer">footer</footer> -->
-    <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+    <div id="map">
+      <!-- <img id="test-map"
+          src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
+          alt="The google map"
+      />-->
+      <googleMaps />
+    </div>
+  </div>
+  <!-- <footer id="footer">footer</footer> -->
+  <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
 </body>
 </template>
 
@@ -72,11 +73,14 @@
 import authService from "../services/AuthService";
 import api from "../services/APIService";
 import potholeCard from "../components/PotholeCard";
+//Google maps Import
+import GoogleMaps from "../components/MapSearch";
 
 export default {
   name: "login",
   components: {
     potholeCard,
+    GoogleMaps,
   },
   data() {
     return {
@@ -117,7 +121,7 @@ export default {
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
-*{
+* {
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
   font-weight: bold;
@@ -140,13 +144,13 @@ header img {
   column-gap: 5px;
   align-items: center;
   grid-template-areas:
-  "login map"
-  "list map";
+    "login map"
+    "list map";
 }
 
-#report-button{
+#report-button {
   display: flex;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 30px;
   justify-content: center;
   align-self: flex-start;
@@ -157,37 +161,33 @@ header img {
   box-shadow: black 2px 2px;
   border-radius: 5px;
 }
-#login{
+#login {
   display: flex;
   grid-area: login;
   justify-content: flex-start;
 }
-#content{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-self: flex-end;
-grid-area: list;
-border: black solid 3px;
-overflow-y: auto;
-overflow-x: hidden ;
-height: 200px;
-text-align: center;
-
-}
-#map{
+#content {
   display: flex;
-  height: 80%;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-end;
+  grid-area: list;
+  border: black solid 3px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 200px;
+  text-align: center;
+}
+#map {
+  display: flex;
   justify-content: center;
   grid-area: map;
+  width: 100%;
 }
-.card{
+.card {
   border-bottom: black solid 1px;
 }
-#rlink{
+#rlink {
   color: white;
 }
-
-
 </style>
