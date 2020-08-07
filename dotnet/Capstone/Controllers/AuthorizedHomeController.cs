@@ -30,7 +30,7 @@ namespace Capstone.Controllers
             return potholes;
         }
         [HttpPut("Update/{id}/{status}")]
-        public ActionResult<string> UpdateAPothole(string status, int id)
+        public ActionResult<string> UpdateAPothole(int id, string status)
         {
             int statusNumber = int.Parse(status);
             string message = "";
