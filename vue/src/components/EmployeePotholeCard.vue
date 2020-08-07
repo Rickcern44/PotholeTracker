@@ -11,7 +11,7 @@
     <p>{{pothole.dateAddedString}}</p>
     <p v-if="checkSeverity(pothole.severity)" id="severity">Severity: {{pothole.severity}}</p>
     <label for="Severity">Update Severity: </label>
-    <select name="Severity" id="dropdownSeverity" v-model="pothole.severity">
+    <select name="Severity" id="dropdownSeverity" v-model="pothole.severity" v-on:change="updateSeverity(pothole.id, pothole.severity)">
       <option value=1>1</option>
       <option value=2>2</option>
       <option value=3>3</option>
@@ -67,6 +67,10 @@ export default {
       else if (string == "3"){
         return 3
       }
+    },
+    updateSeverity(id, severity){
+      api.updatePotholeSeverity(id, severity)
+      api.getPublicPotholes();
     }
   },
   computed: {},

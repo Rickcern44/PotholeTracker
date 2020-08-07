@@ -10,5 +10,9 @@ export default {
     },
     updatePotholeStatus(pothole){
         return axios.put('Home/Update' , pothole)
+    },
+    updatePotholeSeverity(id, severity){
+        const url = `Severity/${id}/${severity}`
+        return axios.put(url)
     }
 }
