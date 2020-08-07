@@ -11,12 +11,8 @@
       <br/>
 
     </div>
-    <br>
-    <gmap-map
-      :center="center"
-      :zoom="12"
-      style="width: 1000px;  height: 400px;"
-    >
+    <br />
+    <gmap-map :center="center" :zoom="12" style="width: 1000px;  height: 400px;">
       <gmap-marker
         :key="index"
         v-for="(m, index) in markers"
@@ -34,12 +30,10 @@ export default {
     return {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
-      center: { lat: 41.4687225, lng: -81.68739668 },
-      markers: [
-          { }
-      ],
+      center: { lat: 41.4687, lng: -81.68739 },
+      markers: ["1548 Alameda Avenue, Lakewood, Ohio"],
       places: [],
-      currentPlace: null
+      currentPlace: null,
     };
   },
 
@@ -56,7 +50,7 @@ export default {
       if (this.currentPlace) {
         const marker = {
           lat: this.currentPlace.geometry.location.lat(),
-          lng: this.currentPlace.geometry.location.lng()
+          lng: this.currentPlace.geometry.location.lng(),
         };
         this.markers.push({ position: marker });
         this.places.push(this.currentPlace);
@@ -64,14 +58,16 @@ export default {
         this.currentPlace = null;
       }
     },
-    geolocate: function() {
-      navigator.geolocation.getCurrentPosition(position => {
+    geolocate: function () {
+      navigator.geolocation.getCurrentPosition((position) => {
         this.center = {
           lat: position.coords.latitude,
-          lng: position.coords.longitude
+          lng: position.coords.longitude,
         };
       });
-    }
-  }
+    },
+  },
+  created: {
+  },
 };
 </script>

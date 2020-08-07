@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 //Map key import
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyAj_oxrFECAQDBRlqJxmXTaiFhjIutgIzI",
+    key: "AIzaSyAlcsTIh-EKItsXyrIWjP2N2pYDugC_6Dc",
     libraries: "places" // necessary for places input
   }
 });
