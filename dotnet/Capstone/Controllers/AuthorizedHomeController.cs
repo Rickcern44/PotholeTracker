@@ -36,10 +36,11 @@ namespace Capstone.Controllers
             return updatedPothole;
         }
         [HttpPut("Severity/{id}/{severity}")]
-        public ActionResult<string> UpdateSeverity(int id, int severity)
+        public ActionResult<string> UpdateSeverity(int id, string severity)
         {
+            int severityNumber = int.Parse(severity);
             string message = "";
-            return message = potholeDAO.UpdatePotholeSeverity(id, severity);
+            return message = potholeDAO.UpdatePotholeSeverity(id, severityNumber);
         }
         [HttpDelete("Pothole/{id}")]
         public ActionResult<string> DeletePothole(int id)
