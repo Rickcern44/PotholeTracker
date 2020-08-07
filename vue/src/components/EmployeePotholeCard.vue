@@ -4,8 +4,10 @@
     <p>{{pothole.location}}</p>
     <p id="status">{{statusString(pothole.status)}}</p>
     <label for="Status">Update Status: </label>
-    <select name="Status" id="dropdownStatus" v-model="pothole.status" v-on:change="updatePotholeStatus(pothole)">
-      <option v-for="option in statusOptions" v-bind:key="option.value">{{option.text}}</option>
+    <select name="Status" id="dropdownStatus" v-model="pothole.status" v-on:change="updatePotholeStatus(pothole.id, pothole.status)">
+      <option value=1>Reported</option>
+      <option value=2>Under Repair</option>
+      <option value=3>Work Completed</option>
     </select>
     <p>{{pothole.description}}</p>
     <p>{{pothole.dateAddedString}}</p>
@@ -38,11 +40,11 @@ export default {
   },
   methods: {
     statusString(status) {
-      if (status === 1) {
+      if (status === 1 || status === "1") {
         return "Reported";
-      } else if (status === 2) {
+      } else if (status === 2 || status === "2") {
         return "Under Repair";
-      } else if (status === 3) {
+      } else if (status === 3 || status === "3") {
         return "Work Completed";
       }
     },
@@ -53,20 +55,9 @@ export default {
         return true;
       }
     },
-    updatePotholeStatus(pothole) {
-      api.updatePotholeStatus(pothole);
+    updatePotholeStatus(id, status) {
+      api.updatePotholeStatus(id, status);
       api.getPublicPotholes();
-    },
-    stringToNumber(string){
-      if (string == "1"){
-        return 1
-      }
-      else if (string == "2"){
-        return 2
-      }
-      else if (string == "3"){
-        return 3
-      }
     },
     updateSeverity(id, severity){
       api.updatePotholeSeverity(id, severity)

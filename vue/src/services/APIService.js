@@ -8,8 +8,9 @@ export default {
     reportPothole(newPothole){
         return axios.post('Home/Report', newPothole)
     },
-    updatePotholeStatus(pothole){
-        return axios.put('Home/Update' , pothole)
+    updatePotholeStatus(id, status){
+        const url = `Update/${id}/${status}`
+        return axios.put(url)
     },
     updatePotholeSeverity(id, severity){
         const url = `Severity/${id}/${severity}`
