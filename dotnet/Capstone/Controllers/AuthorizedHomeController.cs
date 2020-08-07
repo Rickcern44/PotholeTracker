@@ -29,11 +29,11 @@ namespace Capstone.Controllers
             List<Pothole> potholes = potholeDAO.GetAllPotholes();
             return potholes;
         }
-        [HttpPut("Update")]
-        public ActionResult<Pothole> UpdateAPothole(Pothole pothole, int status, int id)
+        [HttpPut("Update/{id}/{status}")]
+        public ActionResult<string> UpdateAPothole(int status, int id)
         {
-            Pothole updatedPothole = potholeDAO.UpdateAPothole(pothole, status, id);
-            return updatedPothole;
+            string message = "";
+            return message = potholeDAO.UpdateAPothole(status, id);
         }
         [HttpPut("Severity/{id}/{severity}")]
         public ActionResult<string> UpdateSeverity(int id, string severity)

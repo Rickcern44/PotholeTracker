@@ -80,8 +80,9 @@ namespace Capstone.DAO
             }
             return pothole;
         }
+        //Change this update to only take an id and status
         //TODO: Fix this function to be more effeciant
-        public Pothole UpdateAPothole(Pothole pothole, int status, int id)
+        public string UpdateAPothole(int status, int id)
         {
             string sqlQuery = "UPDATE Pothole SET Status = @status  WHERE Id = @id";
             try
@@ -91,8 +92,8 @@ namespace Capstone.DAO
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sqlQuery, conn);
-                    cmd.Parameters.AddWithValue("@status", pothole.Status);
-                    cmd.Parameters.AddWithValue("@id", pothole.Id);
+                    cmd.Parameters.AddWithValue("@status", status);
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -100,7 +101,7 @@ namespace Capstone.DAO
             {
                 Console.WriteLine(ex);     
             }
-            return pothole;
+            return $"The pothole id {id} was updated to status {status}";
 
         }
         //Update pothole Severity 

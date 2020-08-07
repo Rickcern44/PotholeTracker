@@ -8,7 +8,7 @@ namespace Capstone.DAO
         string DeletePothole(int id);
         List<Pothole> GetAllPotholes();
         Pothole ReportApothole(Pothole pothole);
-        Pothole UpdateAPothole(Pothole pothole,int status, int id);
+        string UpdateAPothole(int status, int id);
         string UpdateAssignedEmployee(int userId, int potholeId);
         string UpdatePotholeSeverity(int id, int severity);
     }
