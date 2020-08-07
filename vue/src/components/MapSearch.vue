@@ -4,12 +4,12 @@
       <h2>Search and add a pin</h2>
       <label>
         <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete>
-        <button @click="addMarker">Add</button>
+        <button @click="addMarkerToArray()">Add</button>
       </label>
       <br />
     </div>
     <br />
-    <gmap-map :center="center" :zoom="12" style="width: 1000px;  height: 400px;">
+    <gmap-map :center="center" :zoom="12" style="width: 800px;  height: 600px;">
       <gmap-marker
         :key="index"
         v-for="(m, index) in markers"
@@ -34,7 +34,7 @@ export default {
     };
   },
   props: {
-    potholes: [],
+    pothole: [],
   },
 
   mounted() {
@@ -58,15 +58,17 @@ export default {
         this.currentPlace = null;
       }
     },
-    // addMarkerFromArr() {
-    //   this.potholes.forEach((p) => {
-    //     const marker = {
-    //       lat: p.lat,
-    //       lng: p.lng,
-    //     };
-    //     this.markers.push({ position: marker });
-    //   });
-    // },
+
+    addMarkerToArray(){
+        this.pothole.forEach( object => {
+            let marker = {
+            lat: object.latitude,
+            lng: object.longitude
+            };
+            this.markers.push({position: marker})
+            this.center = marker;
+        })
+    },
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
         this.center = {
@@ -76,16 +78,8 @@ export default {
       });
     },
   },
-  created: {
-    addMarkerFromArr() {
-      this.potholes.forEach((p) => {
-        const marker = {
-          lat: p.lat,
-          lng: p.lng,
-        };
-        this.markers.push({ position: marker });
-      });
-    },
+  created() {
+
   },
 };
 </script>

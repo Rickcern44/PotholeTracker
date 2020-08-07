@@ -61,10 +61,10 @@
           src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
           alt="The google map"
       />-->
-      <googleMaps  v-bind:potholes="potholes"/>
+      <googleMaps  v-bind:pothole="potholes"/>
     </div>
-  </div>
-  <!-- <footer id="footer">footer</footer> -->
+  </div >
+  <footer id="footer">footer</footer>
   <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
 </body>
 </template>
@@ -175,7 +175,7 @@ header img {
   border: black solid 3px;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 200px;
+  height: 400px;
   text-align: center;
 }
 #map {
