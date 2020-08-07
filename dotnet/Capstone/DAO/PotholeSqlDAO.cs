@@ -189,9 +189,10 @@ namespace Capstone.DAO
             pothole.Description = Convert.ToString(reader["Description"]);
             pothole.Status = (PotholeStatus)Convert.ToInt32(reader["Status"]);
             pothole.Severity = Convert.ToInt32(reader["Severity"]);
-            pothole.AddressResult = addressModel;
+            pothole.Latitude = addressModel.results[0].geometry.location.Lat;
+            pothole.Longitude = addressModel.results[0].geometry.location.Lng;
 
-            
+
 
             return pothole;
         }
@@ -202,8 +203,8 @@ namespace Capstone.DAO
             string requestString = $"/json?address={address}&key=AIzaSyAlcsTIh-EKItsXyrIWjP2N2pYDugC_6Dc";
 
             RestClient client = new RestClient(API_URL);
-            RestRequest rest = new RestRequest(requestString, Method.GET);
-            IRestResponse<ParseAddressModel> response = client.Execute<ParseAddressModel>(rest);
+            RestRequest rest = new RestRequest(requestString);
+            IRestResponse<ParseAddressModel> response = client.Get<ParseAddressModel>(rest);
 
             return response.Data;
 

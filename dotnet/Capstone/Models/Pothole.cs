@@ -22,7 +22,8 @@ namespace Capstone.Models
         public int Severity { get; set; }
         public string Description { get; set; }
         public PotholeStatus Status { get; set; }
-        public ParseAddressModel AddressResult { get; set; }
+        public float Latitude { get; set; }
+        public float Longitude { get; set; }
 
     }
 
