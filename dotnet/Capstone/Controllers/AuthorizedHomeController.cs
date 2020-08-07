@@ -30,10 +30,11 @@ namespace Capstone.Controllers
             return potholes;
         }
         [HttpPut("Update/{id}/{status}")]
-        public ActionResult<string> UpdateAPothole(int status, int id)
+        public ActionResult<string> UpdateAPothole(string status, int id)
         {
+            int statusNumber = int.Parse(status);
             string message = "";
-            return message = potholeDAO.UpdateAPothole(status, id);
+            return message = potholeDAO.UpdateAPothole(statusNumber, id);
         }
         [HttpPut("Severity/{id}/{severity}")]
         public ActionResult<string> UpdateSeverity(int id, string severity)
