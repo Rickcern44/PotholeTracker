@@ -7,5 +7,8 @@ export default {
     },
     reportPothole(newPothole){
         return axios.post('Home/Report', newPothole)
+    },
+    updatePotholeStatus(pothole){
+        return axios.put('Home/Update' , pothole)
     }
 }
