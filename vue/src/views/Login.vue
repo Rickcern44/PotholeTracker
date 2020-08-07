@@ -61,7 +61,7 @@
           src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
           alt="The google map"
       />-->
-      <googleMaps />
+      <googleMaps  v-bind:potholes="potholes"/>
     </div>
   </div>
   <!-- <footer id="footer">footer</footer> -->

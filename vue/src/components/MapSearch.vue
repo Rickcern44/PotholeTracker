@@ -3,13 +3,10 @@
     <div>
       <h2>Search and add a pin</h2>
       <label>
-        <gmap-autocomplete
-          @place_changed="setPlace">
-        </gmap-autocomplete>
+        <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete>
         <button @click="addMarker">Add</button>
       </label>
-      <br/>
-
+      <br />
     </div>
     <br />
     <gmap-map :center="center" :zoom="12" style="width: 1000px;  height: 400px;">
@@ -31,10 +28,13 @@ export default {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
       center: { lat: 41.4687, lng: -81.68739 },
-      markers: ["1548 Alameda Avenue, Lakewood, Ohio"],
+      markers: [],
       places: [],
       currentPlace: null,
     };
+  },
+  props: {
+    potholes: [],
   },
 
   mounted() {
@@ -58,6 +58,15 @@ export default {
         this.currentPlace = null;
       }
     },
+    // addMarkerFromArr() {
+    //   this.potholes.forEach((p) => {
+    //     const marker = {
+    //       lat: p.lat,
+    //       lng: p.lng,
+    //     };
+    //     this.markers.push({ position: marker });
+    //   });
+    // },
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
         this.center = {
@@ -68,6 +77,15 @@ export default {
     },
   },
   created: {
+    addMarkerFromArr() {
+      this.potholes.forEach((p) => {
+        const marker = {
+          lat: p.lat,
+          lng: p.lng,
+        };
+        this.markers.push({ position: marker });
+      });
+    },
   },
 };
 </script>
