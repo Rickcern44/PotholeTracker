@@ -2,7 +2,7 @@
   <div class="card">
     <p>{{pothole.Id}}</p>
     <p>{{pothole.location}}</p>
-    <p id="status">{{statusString(pothole.status)}}</p>
+    <p id="status" :class="statusColor">{{statusString(pothole.status)}}</p>
     <label for="Status">Update Status: </label>
     <select name="Status" id="dropdownStatus" v-model="pothole.status" v-on:change="updatePotholeStatus(pothole.id, pothole.status)">
       <option value=1>Reported</option>
@@ -31,11 +31,6 @@ export default {
   },
   data() {
     return {
-      statusOptions: [
-        { text: 'Reported', value: 1 },
-        { text: 'Under Repair', value: 2 },
-        { text: 'Work Completed', value: 3 }
-      ]
     }
   },
   methods: {
@@ -44,10 +39,16 @@ export default {
         return "Reported";
       } else if (status === 2 || status === "2") {
         return "Under Repair";
-      } else if (status === 3 || status === "3") {
+      } else if (status === 3 || status === '3') {
         return "Work Completed";
       }
     },
+    statusColorSwitch(status){
+      if (status === 1 || status === '1'){
+        return true;
+      }
+    },
+
     checkSeverity(severity) {
       if (severity === null || severity === 0) {
         return false;
@@ -64,9 +65,32 @@ export default {
       api.getPublicPotholes();
     }
   },
-  computed: {},
+  computed: {
+        statusColor(){
+          let className = "";
+      if (this.pothole.status === 1 || this.pothole.status === '1'){
+            className = 'reported';
+      }else if (this.pothole.status === 2 || this.pothole.status === '2'){
+        className = 'under-repair'
+      }else {
+        className = 'work-completed'
+      }
+      return className
+    },
+  },
 };
 </script>
 
 <style>
+.reported{
+  color: red;
+}
+
+.under-repair{
+  color: orange;
+}
+
+.work-completed{
+  color: green;
+}
 </style>
