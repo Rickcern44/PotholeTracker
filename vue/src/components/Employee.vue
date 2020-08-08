@@ -10,11 +10,19 @@
 
 </header>
 <body>
+    <section id="left-panel">
     <div class = "emp-pthl-list" v-for="pothole in potholes" :key="pothole.id">
         <ul>
             <employeePotholeCard class = "empPthlCard" v-bind:pothole = "pothole"/>
         </ul>
     </div>
+    </section>
+
+    <section id = "right-panel">
+        <div>
+            Where does this display?
+        </div>
+    </section>
 </body>
 <footer>
     
@@ -44,5 +52,25 @@ created(){
 </script>
 
 <style>
+body {
+    margin:0;
+    padding: 0;
+    max-height: 100vh; /*also tried min-height*/
+    background: url(https://i.redd.it/se12qhg8ku011.png) left / cover no-repeat; /*this is OH pothole*/
+    display: flex;
+}
 
+#left-panel {
+    background-color: lightgray;
+    display: flex;
+    flex-basis: 350%;
+    flex-direction: column;
+}
+
+#right-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
 </style>
