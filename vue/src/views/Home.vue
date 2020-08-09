@@ -161,6 +161,11 @@ header img {
   box-shadow: black 2px 2px;
   border-radius: 5px;
 }
+
+#report-button:hover {
+  border: black solid 5px;
+
+}
 #login {
   display: flex;
   grid-area: login;
