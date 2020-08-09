@@ -59,6 +59,9 @@ body {
     /* background: url(https://i.redd.it/se12qhg8ku011.png) left / cover no-repeat; this is OH pothole */
     display: flex;
 }
+.empPthlCard:hover {
+    background-color:lightblue;
+}
 
 #left-panel {
     background-color: lightgray;
