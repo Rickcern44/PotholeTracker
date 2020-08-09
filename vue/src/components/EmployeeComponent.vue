@@ -88,6 +88,6 @@ body {
 }
 
 #headerImg {
-    height: 250px;
+    height: 300px;
 }
 </style>
