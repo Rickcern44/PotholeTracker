@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       <h2>Search and add a pin</h2>
       <label>
         <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete>
         <button @click="addMarkerToArray()">Add</button>
       </label>
       <br />
-    </div>
+    </div> -->
     <br />
     <gmap-map :center="center" :zoom="12" style="width: 800px;  height: 600px;">
       <gmap-marker
@@ -39,6 +39,8 @@ export default {
 
   mounted() {
     this.geolocate();
+    // This sets the the markers to refresh every 1 second change the number after the func call to change the refresh time
+    this.interval = setInterval(() => this.addMarkerToArray(), 1000)
   },
 
   methods: {
@@ -59,15 +61,14 @@ export default {
       }
     },
 
-    addMarkerToArray(){
-        this.pothole.forEach( object => {
-            let marker = {
-            lat: object.latitude,
-            lng: object.longitude
-            };
-            this.markers.push({position: marker})
-            this.center = marker;
-        })
+    addMarkerToArray() {
+      this.pothole.forEach((object) => {
+        let marker = {
+          lat: object.latitude,
+          lng: object.longitude,
+        };
+        this.markers.push({ position: marker });
+      });
     },
     geolocate: function () {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -79,7 +80,7 @@ export default {
     },
   },
   created() {
-
+    this.addMarkerToArray();
   },
 };
 </script>
