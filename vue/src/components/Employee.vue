@@ -20,7 +20,7 @@
 
     <section id = "right-panel">
         <div>
-            Where does this display?
+            Where does this display? Will it grow if I type more?  It does!
         </div>
     </section>
 </body>
@@ -55,22 +55,22 @@ created(){
 body {
     margin:0;
     padding: 0;
-    max-height: 100vh; /*also tried min-height*/
-    background: url(https://i.redd.it/se12qhg8ku011.png) left / cover no-repeat; /*this is OH pothole*/
+    /* max-height: 100vh; also tried min-height */
+    /* background: url(https://i.redd.it/se12qhg8ku011.png) left / cover no-repeat; this is OH pothole */
     display: flex;
 }
 
 #left-panel {
     background-color: lightgray;
     display: flex;
-    flex-basis: 350%;
     flex-direction: column;
+    flex-basis: 100%
 }
 
 #right-panel {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
+    flex-direction: column;
+    flex-basis: 100%;
+    background: url(https://i.redd.it/se12qhg8ku011.png)
 }
 </style>
