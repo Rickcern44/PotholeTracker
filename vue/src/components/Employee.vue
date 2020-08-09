@@ -51,7 +51,7 @@ created(){
 
 </script>
 
-<style>
+<style scoped>
 body {
     margin:0;
     padding: 0;

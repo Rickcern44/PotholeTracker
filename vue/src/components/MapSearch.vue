@@ -7,7 +7,7 @@
         <button @click="addMarkerToArray()">Add</button>
       </label>
       <br />
-    </div> -->
+    </div>-->
     <br />
     <gmap-map :center="center" :zoom="12" style="width: 800px;  height: 600px;">
       <gmap-marker
@@ -27,7 +27,7 @@ export default {
     return {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
-      center: { lat: 41.4687, lng: -81.68739 },
+      center: { lat: 41.4687, lng: -81.68739},
       markers: [],
       places: [],
       currentPlace: null,
@@ -40,7 +40,7 @@ export default {
   mounted() {
     this.geolocate();
     // This sets the the markers to refresh every 1 second change the number after the func call to change the refresh time
-    this.interval = setInterval(() => this.addMarkerToArray(), 1000)
+    this.interval = setInterval(() => this.addMarkerToArray(), 1000);
   },
 
   methods: {
@@ -68,6 +68,9 @@ export default {
           lng: object.longitude,
         };
         this.markers.push({ position: marker });
+        this.places.push(this.currentPlace);
+        this.center = marker;
+        this.currentPlace = null;
       });
     },
     geolocate: function () {
