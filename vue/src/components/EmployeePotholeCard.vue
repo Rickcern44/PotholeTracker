@@ -93,4 +93,12 @@ export default {
 .work-completed{
   color: green;
 }
+
+#dropdownStatus:hover {
+  background-color: lightskyblue ;
+}
+
+#dropdownSeverity:hover {
+  background-color: lightskyblue;
+}
 </style>
