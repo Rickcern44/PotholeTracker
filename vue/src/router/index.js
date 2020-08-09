@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
+import Employee from '../views/Employee'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
@@ -23,23 +23,23 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: '/employee',
+      name: 'employee',
+      component: Employee,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/",
+      name: "home",
       component: Home,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/login/report",
+      path: "/home/report",
       name: "report",
       component: Report,
       meta: {
