@@ -10,7 +10,7 @@
       <option value=3>Work Completed</option>
     </select>
     <p>{{pothole.description}}</p>
-    <p>{{pothole.dateAddedString}}</p>
+    <p>Date Reported: {{pothole.dateAddedString}} </p>
     <p v-if="checkSeverity(pothole.severity)" id="severity">Severity: {{pothole.severity}}</p>
     <label for="Severity">Update Severity: </label>
     <select name="Severity" id="dropdownSeverity" v-model="pothole.severity" v-on:change="updateSeverity(pothole.id, pothole.severity)">
