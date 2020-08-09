@@ -70,7 +70,7 @@ body {
     /* margin-bottom: 10px; */
 }
 .empPthlCard:hover {
-    background-color:lightblue;
+    background-color:gray; /*was lightblue*/
     /* margin-right: 35px; */
 }
 
@@ -95,12 +95,14 @@ body {
 /* #OhPothole {
     display: flex;
     position: fixed;
-
     height: auto;
     width: 350px;
 }  */
 
 #headerImg {
-    height: 300px;
+    /*height was 300px*/
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
 }
 </style>
