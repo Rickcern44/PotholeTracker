@@ -9,7 +9,7 @@
       <option value=2>Under Repair</option>
       <option value=3>Work Completed</option>
     </select>
-    <p>{{pothole.description}}</p>
+    <p>User Description: {{pothole.description}}</p>
     <p>Date Reported: {{pothole.dateAddedString}} </p>
     <p v-if="checkSeverity(pothole.severity)" id="severity">Severity: {{pothole.severity}}</p>
     <label for="Severity">Update Severity: </label>

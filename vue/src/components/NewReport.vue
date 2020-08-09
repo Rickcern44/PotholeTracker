@@ -120,6 +120,10 @@ export default {
         font-family: 'Oswald', sans-serif;
         font-weight: bolder;
 
+    }
+
+    #button:hover {
+        border: black solid 2px;
     } 
     #container{
         display:flex;
