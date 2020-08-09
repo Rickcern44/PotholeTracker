@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <header>
-
+    <img
+      id="headerImg"
+      alt="RoadWorkImage"
+      src="https://callisto.guardian.co.tt/sites/default/files/roadwork%281%29.jpg"
+    />
 </header>
 <body>
     <section id="left-panel">
@@ -67,7 +71,7 @@ body {
     background-color: lightgray;
     display: flex;
     flex-direction: column;
-    flex-basis: 100%
+    flex-basis: 100%;
 }
 
 #right-panel {
@@ -79,8 +83,12 @@ body {
     flex-grow: 1;
 }
 #OhPothole {
+
     height: 450px;
     width: 350px;
-    position: fixed;
+}
+
+#headerImg {
+    height: 250px;
 }
 </style>
