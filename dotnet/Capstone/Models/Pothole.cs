@@ -16,7 +16,7 @@ namespace Capstone.Models
         {
             get
             {
-                return this.DateAdded.ToString("f");
+                return this.DateAdded.ToString("MM/dd/yyyy");
             }
         }
         public int Severity { get; set; }
