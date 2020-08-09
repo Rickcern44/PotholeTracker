@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import employee from "../components/Employee"
+import employee from "../components/EmployeeComponent"
 export default {
   components: {
     employee
