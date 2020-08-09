@@ -106,6 +106,7 @@ export default {
         padding: 40px;
         margin: 10px auto;
         border-radius: 30px;
+        height: 312px; /*this stops the bottom of box from moving during button hover*/
 
 
     }
@@ -119,11 +120,14 @@ export default {
         border-radius: 5px;
         font-family: 'Oswald', sans-serif;
         font-weight: bolder;
+        
+        
 
     }
 
     #button:hover {
         border: black solid 2px;
+        
     } 
     #container{
         display:flex;

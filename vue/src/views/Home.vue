@@ -169,7 +169,7 @@ header img {
 }
 
 #report-button:hover {
-  border: black solid 5px;
+  border: black solid 3px; /*was 5px*/
 
 }
 #login {

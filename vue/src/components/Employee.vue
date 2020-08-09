@@ -18,11 +18,11 @@
     </div>
     </section>
 
-    <section id = "right-panel">
+    <!-- <section id = "right-panel">
         <div>
             <img id="ohio" src="https://i.redd.it/se12qhg8ku011.png" alt="picture of Ohio shaped pothole"/>
         </div>
-    </section>
+    </section> -->
 </body>
 <footer>
     
