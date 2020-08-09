@@ -75,17 +75,17 @@ body {
 }
 
 #right-panel {
-    display: flex;
+    display: flexbox;
     flex-direction: column;
     flex-basis: 100%;
-    align-items: left;
-    padding-left: 200px;
+    padding-left: 180px;
     flex-grow: 1;
 }
 #OhPothole {
-
-    height: 450px;
+    display: flex;
+    height: auto;
     width: 350px;
+    position: fixed;
 }
 
 #headerImg {
