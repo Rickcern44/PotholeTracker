@@ -85,7 +85,6 @@ body {
     display: flex;
     height: auto;
     width: 350px;
-    position: fixed;
 }
 
 #headerImg {
