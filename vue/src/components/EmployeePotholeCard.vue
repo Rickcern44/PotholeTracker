@@ -102,10 +102,12 @@ export default {
   background-color: lightskyblue;
 }
 
-/* .card {
-  border: 50px solid transparent;
+
+ .card {
+  /*border: 50px solid transparent;
   padding: 5px;
   border-image: url(https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/797fb274-3d77-4bf5-8f74-2cb547bc5845) 50010;
-  border-image-repeat: repeat;
-} */
+  border-image-repeat: repeat;*/
+  padding-bottom: 15px;
+} 
 </style>

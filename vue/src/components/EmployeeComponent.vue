@@ -22,10 +22,10 @@
     </div>
     </section>
 
-    <section id = "right-panel">
-        <div>
+    <section>
+        <!-- <div id = "right-panel">
             <img id= "OhPothole" src="https://i.redd.it/se12qhg8ku011.png" alt="Ohio Pothole Image">
-        </div>
+        </div> -->
     </section>
 </body>
 <footer>
@@ -62,9 +62,16 @@ body {
     /* max-height: 100vh; also tried min-height */
     /* background: url(https://i.redd.it/se12qhg8ku011.png) left / cover no-repeat; this is OH pothole */
     display: flex;
+    text-align: center;
+}
+
+.empPthlCard{
+    margin-right: 40px;
+    /* margin-bottom: 10px; */
 }
 .empPthlCard:hover {
     background-color:lightblue;
+    /* margin-right: 35px; */
 }
 
 #left-panel {
@@ -72,20 +79,26 @@ body {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
+    justify-content: center;
+    margin: 0px 300px 0px 300px;
+    border-radius: 10px;
 }
 
-#right-panel {
-    display: flexbox;
+/* #right-panel {
+    display: flex;
     flex-direction: column;
     flex-basis: 100%;
-    padding-left: 180px;
+    justify-content: center;
+    padding-left: 575px;
     flex-grow: 1;
-}
-#OhPothole {
+} */
+/* #OhPothole {
     display: flex;
+    position: fixed;
+
     height: auto;
     width: 350px;
-}
+}  */
 
 #headerImg {
     height: 300px;

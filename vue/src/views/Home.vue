@@ -23,7 +23,7 @@
           role="alert"
           v-if="this.$route.query.registration"
         >Thank you for registering, please sign in.</div>
-        <label for="username" class="sr-only">Username</label>
+        <label for="username" class="sr-only">Username:</label>
         <input
           type="text"
           id="username"
@@ -33,7 +33,7 @@
           required
           autofocus
         />
-        <label for="password" class="sr-only">Password</label>
+        <label for="password" class="sr-only">Password:</label>
         <input
           type="password"
           id="password"
@@ -42,7 +42,7 @@
           v-model="user.password"
           required
         />
-        <button type="submit">Sign in</button>
+        <button id="login-button" type="submit">Sign in</button>
       </form>
     </div>
     <button id="report-button">
@@ -160,6 +160,12 @@ header img {
   grid-area: list;
   box-shadow: black 2px 2px;
   border-radius: 5px;
+}
+.sr-only{
+  padding: 10px;
+}
+#login-button{
+  margin-left: 10px;
 }
 
 #report-button:hover {
