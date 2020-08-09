@@ -20,7 +20,7 @@
 
     <section id = "right-panel">
         <div>
-            Where does this display? Will it grow if I type more?  It does!
+            <img id= "OhPothole" src="https://i.redd.it/se12qhg8ku011.png" alt="Ohio Pothole Image">
         </div>
     </section>
 </body>
@@ -71,6 +71,13 @@ body {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
-    background: url(https://i.redd.it/se12qhg8ku011.png)
+    align-items: left;
+    padding-left: 200px;
+    flex-grow: 1;
+}
+#OhPothole {
+    height: 450px;
+    width: 350px;
+    position: fixed;
 }
 </style>

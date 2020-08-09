@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <h1>Employee Home Page</h1>
     <employee/>
   </div>
 </template>
@@ -14,3 +14,8 @@ export default {
   name: "home"
 };
 </script>
+<style>
+h1{
+  text-align: center;
+}
+</style>
