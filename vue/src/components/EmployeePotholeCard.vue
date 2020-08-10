@@ -96,12 +96,12 @@ export default {
 
 #dropdownStatus:hover {
   border: black solid 1px;
-  /* background-color: lightskyblue; */
+  background-color: lightskyblue; 
 }
 
 #dropdownSeverity:hover {
   border: black solid 1px;  
-  /* background-color: lightskyblue; */
+  background-color: lightskyblue;
 }
 
 
