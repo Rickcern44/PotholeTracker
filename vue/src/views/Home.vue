@@ -117,6 +117,11 @@ export default {
       this.potholes = resp.data;
     });
   },
+  mounted() {
+        api.getPublicPotholes().then((resp) => {
+      this.potholes = resp.data;
+    });
+  }
 };
 </script>
 <style>

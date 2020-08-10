@@ -3,6 +3,12 @@
     "mssql2": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/pothole-tracker/databases/PotholeTrackerDB",
       "type": "mssql.azure",
+      "connectionId": "Deploy",
+      "secretStore": "LocalSecretsFile"
+    },
+    "mssql1": {
+      "resourceId": null,
+      "type": "mssql.local",
       "connectionId": "Project",
       "secretStore": "LocalSecretsFile"
     }

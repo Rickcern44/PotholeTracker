@@ -3,8 +3,14 @@
     "mssql2": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/pothole-tracker/databases/PotholeTrackerDB",
       "type": "mssql.azure",
-      "connectionId": "Project",
+      "connectionId": "Deploy",
       "secretStore": "AzureAppSettings"
+    },
+    "mssql1": {
+      "resourceId": null,
+      "type": "mssql.onprem",
+      "connectionId": "Project",
+      "secretStore": null
     }
   }
 }
