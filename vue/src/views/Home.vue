@@ -149,7 +149,7 @@ header img {
   column-gap: 5px;
   align-items: center;
   grid-template-areas:
-    "login map"
+    "button login"
     "list map";
 }
 
@@ -180,18 +180,20 @@ header img {
 #login {
   display: flex;
   grid-area: login;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 #content {
   display: flex;
+  /* flex-grow: 1; */
   flex-direction: column;
   justify-content: center;
+  object-fit: contain;
   align-self: flex-end;
   grid-area: list;
   border: black solid 3px;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 400px;
+  max-height: 600px;
   text-align: center;
 }
 #map {
