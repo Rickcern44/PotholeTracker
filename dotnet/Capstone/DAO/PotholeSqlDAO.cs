@@ -47,6 +47,7 @@ namespace Capstone.DAO
             {
                 Console.WriteLine(ex.Message);
             }
+            Console.WriteLine($"Hit the return pothole in get all potholes and this is all potholes {potholes}");
             return potholes;
         }
         public Pothole ReportApothole(Pothole pothole)

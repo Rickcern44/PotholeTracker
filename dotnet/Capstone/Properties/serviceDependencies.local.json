@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/pothole-tracker/databases/PotholeTrackerDB",
+      "type": "mssql.azure",
+      "connectionId": "Project",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
+}

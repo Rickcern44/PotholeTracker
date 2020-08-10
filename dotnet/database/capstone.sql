@@ -2,16 +2,16 @@ USE master
 GO
 
 --drop database if it exists
-IF DB_ID('PotholeTracker') IS NOT NULL
+IF DB_ID('PotholeTrackerDB') IS NOT NULL
 BEGIN
-	ALTER DATABASE PotholeTracker SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-	DROP DATABASE PotholeTracker;
+	ALTER DATABASE PotholeTrackerDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+	DROP DATABASE PotholeTrackerDB;
 END
 
-CREATE DATABASE PotholeTracker
-GO
+--CREATE DATABASE PotholeTrackerDB
+--GO
 
-USE PotholeTracker
+USE PotholeTrackerDB
 GO
 
 -- ************************************** [Users]
