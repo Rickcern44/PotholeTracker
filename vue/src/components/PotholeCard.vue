@@ -1,7 +1,7 @@
 <template>
   <div class="card">
       <p>{{pothole.location}}</p>
-      <p>{{statusString(pothole.status)}}</p>
+      <p :class="statusColor">{{statusString(pothole.status)}}</p>
       <p>{{pothole.description}}</p>
       <p>{{pothole.dateAddedString}}</p>
   </div>
@@ -42,13 +42,16 @@ computed:{
 <style>
 .reported{
   color: red;
+  font-weight: 900;
 }
 
 .under-repair{
   color: orange;
+  font-weight: 900;
 }
 
 .work-completed{
   color: green;
+  font-weight: 900;
 }
 </style>

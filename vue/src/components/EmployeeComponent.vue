@@ -71,7 +71,7 @@ body {
 }
 .empPthlCard:hover {
     background-color:gray; /*was lightblue*/
-    /* margin-right: 35px; */
+    font-weight: bolder;
 }
 
 #left-panel {

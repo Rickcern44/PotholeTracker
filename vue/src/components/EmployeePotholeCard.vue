@@ -81,8 +81,8 @@ export default {
 };
 </script>
 
-<style>
-.reported{
+<style scoped>
+/* .reported{
   color: red;
 }
 
@@ -92,7 +92,7 @@ export default {
 
 .work-completed{
   color: green;
-}
+} */
 
 #dropdownStatus:hover {
   border: black solid 1px;
