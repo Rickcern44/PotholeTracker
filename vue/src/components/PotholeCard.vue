@@ -24,10 +24,31 @@ statusString(status){
   },
 },
 computed:{
-  
+  statusColor(){
+   let className = "";
+      if (this.pothole.status === 1 || this.pothole.status === '1'){
+            className = 'reported';
+      }else if (this.pothole.status === 2 || this.pothole.status === '2'){
+        className = 'under-repair'
+      }else {
+        className = 'work-completed'
+      }
+      return className
+  },
 }
 }
 </script>
 
 <style>
+.reported{
+  color: red;
+}
+
+.under-repair{
+  color: orange;
+}
+
+.work-completed{
+  color: green;
+}
 </style>
