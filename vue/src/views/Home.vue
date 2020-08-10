@@ -64,7 +64,7 @@
       <googleMaps  v-bind:pothole="potholes"/>
     </div>
   </div >
-  <footer id="footer">footer</footer>
+  <footer id="footer">&copy; The Pothole Tracker 2020 </footer>
   <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
 </body>
 </template>
@@ -195,10 +195,11 @@ header img {
   overflow-x: hidden;
   max-height: 600px;
   text-align: center;
+  padding-top: 190px;
 }
 #map {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   grid-area: map;
   width: 100%;
 }
@@ -207,5 +208,9 @@ header img {
 }
 #rlink {
   color: white;
+}
+#footer{
+text-align: left;
+margin: 10px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div id="search">
       <h2>Search and add a pin</h2>
       <label>
         <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete>
@@ -9,7 +9,7 @@
       <br />
     </div>
     <br />
-    <gmap-map :center="center" :zoom="12" style="width: 800px;  height: 600px;">
+    <gmap-map :center="center" :zoom="12" style="width: 1025px;  height: 600px;">
       <!-- Here is the info window code -->
       <gmap-info-window
         :options="infoOptions"
@@ -146,5 +146,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+#search{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+</style>
 
 
