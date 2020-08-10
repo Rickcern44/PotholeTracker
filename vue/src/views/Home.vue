@@ -65,7 +65,7 @@
     </div>
   </div >
   <footer id="footer">&copy; The Pothole Tracker 2020 </footer>
-  <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+  <router-link :to="{ name: 'register' }">Need an account?</router-link>
 </body>
 </template>
 

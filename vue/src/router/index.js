@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Report from '../views/Report.vue'
+import AdminPage from '../components/AdminPage'
 
 Vue.use(Router)
 
@@ -61,6 +62,15 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: "/admin",
+      name: "admin",
+      component: AdminPage,
+      meta: {
+        requiresAuth: false
+      },
+
     },
   ]
 })
