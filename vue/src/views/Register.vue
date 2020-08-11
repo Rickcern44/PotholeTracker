@@ -44,7 +44,7 @@
       <input type="text" placeholder="Last Name">
       <input type="text" placeholder="Email">
       <input type="text" placeholder="Phone Number">
-      <input type="button" id="button" value="Submit" v-on:click="updateFirstName()">
+      <input type="button" id="button" value="Submit" v-on:click="updateUser()">
       </form>
 
     </div>
@@ -114,7 +114,7 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
-    updateUser(id, firstName, lastName, email, phone){
+    updateUser(id, firstName){
       id = this.userId
       firstName = this.firstName
       api.updateUserFirstName(id ,firstName)

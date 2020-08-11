@@ -26,12 +26,12 @@ export default {
         return axios.put(`Login/Update/id=${id}&firstName=${firstName}`)
     },
     updateUserLastName(id, lastName){
-        return axios.put(`Update/id=${id}&lastName=${lastName}`)
+        return axios.put(`Login/Update/id=${id}&lastName=${lastName}`)
     },
     updateUserEmail(id, Email){
-        return axios.put(`Update/id=${id}&email=${Email}`)
+        return axios.put(`Login/Update/id=${id}&email=${Email}`)
     },
     updateUserPhone(id, Phone){
-        return axios.put(`Update/id=${id}&phone=${Phone}`)
+        return axios.put(`Login/Update/id=${id}&phone=${Phone}`)
     }
 }
