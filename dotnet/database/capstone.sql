@@ -2,7 +2,7 @@ USE master
 GO
 
 --drop database if it exists
- alter database [PotholeTracker] set single_user with rollback immediate
+ --alter database [PotholeTracker] set single_user with rollback immediate
 
  drop database [PotholeTracker]
 CREATE DATABASE PotholeTracker;
@@ -12,7 +12,7 @@ USE PotholeTracker
 GO
 
 -- ************************************** [Users]
-
+--drop table Users
 CREATE TABLE [Users]
 (
  [user_id]      int IDENTITY (1,1) NOT NULL ,
@@ -20,45 +20,29 @@ CREATE TABLE [Users]
  [password_hash] nvarchar(50) NOT NULL ,
  [salt]         nvarchar(50) NOT NULL ,
  [user_role]    nvarchar(50) NOT NULL ,
+ [FirstName]   nvarchar(100) NULL ,
+ [LastName]    nvarchar(100) NULL ,
+ [Email]       nvarchar(50) NULL ,
+ [PhoneNumber] nvarchar(50) NULL ,
+
 
 
  CONSTRAINT [PK_users] PRIMARY KEY CLUSTERED ([user_id] ASC)
 );
 GO
 
--- ************************************** [UserInfo]
-
-CREATE TABLE [UserInfo]
-(
- [user_id]     int NOT NULL ,
- [FirstName]   nvarchar(100) NOT NULL ,
- [LastName]    nvarchar(100) NOT NULL ,
- [Email]       nvarchar(50) NULL ,
- [PhoneNumber] nvarchar(50) NULL ,
 
 
- CONSTRAINT [FK_118] FOREIGN KEY ([user_id])  REFERENCES [Users]([user_id])
-);
-GO
-
-
-CREATE NONCLUSTERED INDEX [fkIdx_118] ON [UserInfo] 
- (
-  [user_id] ASC
- )
-
-GO
-
--- ************************************** [Pothole]
-
+---- ************************************** [Pothole]
+--drop table Pothole
 CREATE TABLE [Pothole]
 (
  [Id]          int IDENTITY (1, 1) NOT NULL ,
  [Location]    nvarchar(100) NOT NULL ,
  [DateAdded]   datetime NOT NULL ,
  [Description] nvarchar(200) NOT NULL ,
- [Status]      int NOT NULL ,
- [Severity]    int NOT NULL ,
+ [Status]      int NOT NULL DEFAULT 1 ,
+ [Severity]    int NOT NULL DEFAULT 0,
  [user_id]     int NULL ,
 
 
@@ -79,8 +63,13 @@ GO
 
 
 --populate default data
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+
+INSERT INTO users (username, password_hash, salt, user_role, FirstName, LastName, Email, PhoneNumber) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user', 'Ricky', 'Cerny', 'rcerny@yahoo.com', '1111111111');
+
+INSERT INTO users (username, password_hash, salt, user_role, FirstName, LastName, Email) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin',  'Dan', 'Goepfert', 'dg@yahoo.com');
+
+
+-- user info 
 
 
 --Add a couple potholes

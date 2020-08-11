@@ -18,5 +18,20 @@ export default {
     updatePotholeSeverity(id, severity){
         const url = `Severity/${id}/${severity}`
         return axios.put(url)
+    },
+    getAllUsers(){
+        return axios.get('Login')
+    },
+    updateUserFirstName(id, firstName){
+        return axios.put(`Login/Update/id=${id}&firstName=${firstName}`)
+    },
+    updateUserLastName(id, lastName){
+        return axios.put(`Update/id=${id}&lastName=${lastName}`)
+    },
+    updateUserEmail(id, Email){
+        return axios.put(`Update/id=${id}&email=${Email}`)
+    },
+    updateUserPhone(id, Phone){
+        return axios.put(`Update/id=${id}&phone=${Phone}`)
     }
 }

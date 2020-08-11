@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Report from '../views/Report.vue'
-import AdminPage from '../components/AdminPage'
+import AdminPage from '../views/AdminView'
 
 Vue.use(Router)
 
@@ -79,7 +79,7 @@ router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
 
-  // If it does and they are not logged in, send the user to "/login"
+  // If it does and they are not logged in, send the user to "/home"
   if (requiresAuth && store.state.token === '') {
     next("/login");
   } else {

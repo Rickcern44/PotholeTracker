@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Capstone.DAO;
+﻿using Capstone.DAO;
 using Capstone.Models;
 using Capstone.Security;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Capstone.Controllers
 {
@@ -19,7 +20,41 @@ namespace Capstone.Controllers
             passwordHasher = _passwordHasher;
             userDAO = _userDAO;
         }
+        [HttpGet]
+        public ActionResult<List<ReturnUser>> GetAllUsers()
+        {
+            List<ReturnUser> users = userDAO.GetAllUsers();
 
+            return users;
+        }
+        [HttpPut("Update/id={id}&firstName={firstName}")]
+        public ActionResult<string> UpdateUserFirstName(int id, string firstName)
+        {
+            string message = "";
+            message = userDAO.UpdateFirstName(id, firstName);
+            return message;
+        }
+        [HttpPut("Update/id={id}&lastname={lastName}")]
+        public ActionResult<string> UpdateUserLastName(int id, string lastName)
+        {
+            string message = "";
+            message = userDAO.UpdateLastName(id, lastName);
+            return message;
+        }
+        [HttpPut("Update/id={id}&email={email}")]
+        public ActionResult<string> UpdateUserEmail(int id, string email)
+        {
+            string message = "";
+            message = userDAO.UpdateEmail(id, email);
+            return message;
+        }
+        [HttpPut("Update/id={id}&phone={phone}")]
+        public ActionResult<string> UpdateUserPhone(int id, string phone)
+        {
+            string message = "";
+            message = userDAO.UpdatePhoneNumber(id, phone);
+            return message;
+        }
         [HttpPost]
         public IActionResult Authenticate(LoginUser userParam)
         {
@@ -36,7 +71,7 @@ namespace Capstone.Controllers
                 string token = tokenGenerator.GenerateToken(user.UserId, user.Username, user.Role);
 
                 // Create a ReturnUser object to return to the client
-                LoginResponse retUser = new LoginResponse() { User = new ReturnUser() { UserId = user.UserId, Username = user.Username, Role = user.Role }, Token = token };
+                LoginResponse retUser = new LoginResponse() { User = new ReturnUser() { UserId = user.UserId, Username = user.Username, Role = user.Role, FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, PhoneNumber = user.PhoneNumber }, Token = token };
 
                 // Switch to 200 OK
                 result = Ok(retUser);

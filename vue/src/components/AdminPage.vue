@@ -19,6 +19,9 @@
       <!-- Update severity dropdown -->
       <p>Employees Assigned: {{pothole.userId}}</p>
     </div>
+    <div>
+      <router-link :to="{ name: 'register' }">Register a new employee</router-link>
+    </div>
     
     <div id="ohio">
       <img src="https://i.redd.it/se12qhg8ku011.png" alt="picture of Ohio shaped pothole"/>
@@ -36,6 +39,7 @@ export default {
   data() {
     return {
       potholes: [],
+      employeeList: [],
     };
   },
   methods() {},
@@ -59,7 +63,7 @@ export default {
 #ohio{
   grid-area: ohio;
   justify-self: right;
-  align-self: ;
+  /* align-self: ; */
 
  
 }

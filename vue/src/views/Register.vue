@@ -37,12 +37,30 @@
         Create Account
       </button>
     </form>
+    <div class="updateSelection">
+      <form @submit.prevent="submit">
+              <input type="text" placeholder="User Id" v-model="userId">
+      <input type="text" placeholder="First Name" v-model="firstName">
+      <input type="text" placeholder="Last Name">
+      <input type="text" placeholder="Email">
+      <input type="text" placeholder="Phone Number">
+      <input type="button" id="button" value="Submit" v-on:click="updateFirstName()">
+      </form>
+
+    </div>
+    <div class="userList" v-for="employee in employeeList" :key="employee.userId">
+      <p>UserID: {{employee.userId}}</p>
+      <p>First Name: {{employee.firstName}}</p>
+      <p>Last Name: {{employee.lastName}}</p>
+      <p>Email: {{employee.email}}</p>
+      <p>Phone: {{employee.phoneNumber}}</p>
+    </div>
   </div>
 </template>
 
 <script>
 import authService from '../services/AuthService';
-
+import api from '../services/APIService';
 export default {
   name: 'register',
   data() {
@@ -53,9 +71,18 @@ export default {
         confirmPassword: '',
         role: 'user',
       },
+      employeeList:[],
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
+      //user info
+      userId: "",
+      firstName: "",
     };
+  },
+  created(){
+            api.getAllUsers().then(resp => {
+      this.employeeList = resp.data;
+    })
   },
   methods: {
     register() {
@@ -86,6 +113,12 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
+    updateFirstName(id, firstName){
+      id = this.userId
+      firstName = this.firstName
+      api.updateUserFirstName(id ,firstName)
+      api.getAllUsers()
+    }
   },
 };
 </script>

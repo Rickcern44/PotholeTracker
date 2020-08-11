@@ -65,7 +65,6 @@
     </div>
   </div >
   <footer id="footer">&copy; The Pothole Tracker 2020 </footer>
-  <router-link :to="{ name: 'register' }">Need an account?</router-link>
 </body>
 </template>
 
@@ -100,7 +99,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            this.$router.push("/employee");
           }
         })
         .catch((error) => {
