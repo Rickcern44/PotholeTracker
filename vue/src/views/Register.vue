@@ -77,6 +77,7 @@ export default {
       //user info
       userId: "",
       firstName: "",
+      lastName: "",
     };
   },
   created(){
@@ -113,11 +114,13 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
-    updateFirstName(id, firstName){
+    updateUser(id, firstName, lastName, email, phone){
       id = this.userId
       firstName = this.firstName
       api.updateUserFirstName(id ,firstName)
-      api.getAllUsers()
+      api.getAllUsers().then(resp => {
+      this.employeeList = resp.data;
+    })
     }
   },
 };
