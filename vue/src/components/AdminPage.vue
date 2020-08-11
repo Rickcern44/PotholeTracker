@@ -6,19 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div v-for="pothole in potholes" :key="pothole.id">
-        <p>Pothole ID: {{pothole.id}}</p>
-        <p>Pothole Location: {{pothole.location}}</p>
-        <p>Status: {{pothole.status}}</p>
-        <!-- Update status dropdown -->
-        <p> Description: {{pothole.description}}</p>
-        <p>Date Added: {{pothole.dateAdded}}</p>
-        <p>Severity: {{pothole.severity}}</p>
-        <!-- Update severity dropdown -->
-        <p>Employees Assigned: {{pothole.userId}}</p>
-
+<body id="main-grid">
+ 
+    <div class="admin-pthl-list" v-for="pothole in potholes" :key="pothole.id">
+      <p>Pothole ID: {{pothole.id}}</p>
+      <p>Pothole Location: {{pothole.location}}</p>
+      <p>Status: {{pothole.status}}</p>
+      <!-- Update status dropdown -->
+      <p> Description: {{pothole.description}}</p>
+      <p>Date Added: {{pothole.dateAdded}}</p>
+      <p>Severity: {{pothole.severity}}</p>
+      <!-- Update severity dropdown -->
+      <p>Employees Assigned: {{pothole.userId}}</p>
     </div>
+    
+    <div id="ohio">
+      <img src="https://i.redd.it/se12qhg8ku011.png" alt="picture of Ohio shaped pothole"/>
+    </div>
+    <footer id="footer">
+      &copy; The Pothole Tracker 2020
+    </footer>
 </body>
 </html>
 </template>
@@ -42,4 +49,21 @@ export default {
 </script>
 
 <style>
+#main-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "list ohio";  
+  
+}
+
+#ohio{
+  grid-area: ohio;
+  justify-self: right;
+  align-self: ;
+
+ 
+}
+.admin-pthl-list{
+  grid-area: list;
+}
 </style>
