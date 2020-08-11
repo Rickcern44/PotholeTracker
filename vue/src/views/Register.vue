@@ -44,7 +44,7 @@
         <input type="text" placeholder="Last Name" v-model="lastName" />
         <input type="text" placeholder="Email" v-model="email" />
         <input type="text" placeholder="Phone Number" v-model="phoneNumber" />
-        <input type="button" id="button" value="Submit" v-on:click="updateUserFirstName(), updateLastName(), updateEmail(), updatePhone(), updatePage()" />
+        <button type="submit" id="button"  v-on:click="updateUserFirstName(), updateLastName(), updateEmail(), updatePhone(), updatePage()">Submit</button>
       </form>
     </div>
     <div class="userList" v-for="employee in employeeList" :key="employee.userId">
