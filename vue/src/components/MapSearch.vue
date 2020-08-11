@@ -26,18 +26,6 @@
         @click="toggleInfoWindow(m,i),center= m.position"
         icon="http://localhost:8080/construction.png"
       ></gmap-marker>
-
-      <!-- This is a working map address bar -->
-      <!-- <gmap-marker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        @click="center=m.position"
-        icon="http://localhost:8080/construction.png"
-        @mouseover="statusText = m.text"
-        @mouseout="statusText = null"
-      ></gmap-marker>-->
-
       <div slot="visible">
         <div
           style="bottom: 0; left: 0; background-color: #03c6fc; color: white; position: absolute; z-index: 100"
@@ -74,14 +62,13 @@ export default {
   props: {
     pothole: [],
   },
-
   mounted() {
     this.geolocate();
-    // This sets the the markers to refresh every 1 second change the number after the func call to change the refresh time
-    // this.interval = setInterval(() => this.addMarkerToArray(), 1000);
-    // this.addMarkerToArray();
+    //Sets the function to timeout after one run
+    this.interval = setTimeout(() => this.addMarkerToArray(), 1000);
   },
-
+  created(){
+  },
   methods: {
     // Js for the info window
     toggleInfoWindow: function (marker, idx) {
@@ -114,7 +101,6 @@ export default {
         this.currentPlace = null;
       }
     },
-
     addMarkerToArray() {
       this.pothole.forEach((object) => {
         let marker = {
@@ -140,9 +126,6 @@ export default {
         };
       });
     },
-  },
-  created() {
-    this.addMarkerToArray();
   },
 };
 </script>

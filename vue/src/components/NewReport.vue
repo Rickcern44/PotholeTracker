@@ -13,7 +13,7 @@
             <label class="formlabel" for="zip">Choose Zip Code:</label>
 
            <!-- This is the dropdown menu -->
-            <select id="zips" name="Zips" v-model="address.zip">
+            <select required id="zips" name="Zips" v-model="address.zip">
                 <option value="44102">44102</option>
                 <option value="44103">44103</option>
                 <option value="44104">44104</option>

@@ -118,9 +118,9 @@ export default {
     });
   },
   mounted() {
-        api.getPublicPotholes().then((resp) => {
-      this.potholes = resp.data;
-    });
+      //   api.getPublicPotholes().then((resp) => {
+      // this.potholes = resp.data;
+    // });
   }
 };
 </script>
