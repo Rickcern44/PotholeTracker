@@ -123,7 +123,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 * {
   box-sizing: border-box;

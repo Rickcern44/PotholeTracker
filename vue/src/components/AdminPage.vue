@@ -1,5 +1,5 @@
 <template>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,15 +12,15 @@
     <div id="content" class="admin-pthl-list" v-for="pothole in potholes" :key="pothole.id">
       <div id ="container">
       <ul>
-        <!-- <li>Pothole ID: {{pothole.id}}</li>
+        <li>Pothole ID: {{pothole.id}}</li>
         <li>Pothole Location: {{pothole.location}}</li>
-        <li>Status: {{pothole.status}}</li> -->
+        <li>Status: {{pothole.status}}</li>
         <!-- Update status dropdown -->
-        <!-- <li>Description: {{pothole.description}}</li>
+        <li>Description: {{pothole.description}}</li>
         <li>Date Added: {{pothole.dateAdded}}</li>
-        <li>Severity: {{pothole.severity}}</li> -->
+        <li>Severity: {{pothole.severity}}</li>
         <!-- Update severity dropdown -->
-        <!-- <li>Employees Assigned: {{pothole.userId}}</li> -->
+        <li>Employees Assigned: {{pothole.userId}}</li>
       </ul>
       </div>
     </div>
