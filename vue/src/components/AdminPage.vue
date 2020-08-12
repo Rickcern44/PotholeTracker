@@ -1,5 +1,5 @@
 <template>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,15 +12,15 @@
     <div id="content" class="admin-pthl-list" v-for="pothole in potholes" :key="pothole.id">
       <div id ="container">
       <ul>
-        <!-- <li>Pothole ID: {{pothole.id}}</li>
+        <li>Pothole ID: {{pothole.id}}</li>
         <li>Pothole Location: {{pothole.location}}</li>
-        <li>Status: {{pothole.status}}</li> -->
+        <li>Status: {{pothole.status}}</li>
         <!-- Update status dropdown -->
-        <!-- <li>Description: {{pothole.description}}</li>
+        <li>Description: {{pothole.description}}</li>
         <li>Date Added: {{pothole.dateAdded}}</li>
-        <li>Severity: {{pothole.severity}}</li> -->
+        <li>Severity: {{pothole.severity}}</li>
         <!-- Update severity dropdown -->
-        <!-- <li>Employees Assigned: {{pothole.userId}}</li> -->
+        <li>Employees Assigned: {{pothole.userId}}</li>
       </ul>
       </div>
     </div>
@@ -87,7 +87,13 @@ export default {
 #admin-button:hover {
   border: black solid 3px;
 }
-
+#main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "list  button ohio"
+    "footer  . .";
+}
 #content {
   display: flex;
   /* flex-grow: 1; */
@@ -103,13 +109,7 @@ export default {
   /* text-align: center; */
   /* padding-top: 190px; */
 }
-#main-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    "list  button ohio"
-    "footer  . .";
-}
+
 
 #ohio {
   grid-area: ohio;
@@ -127,9 +127,12 @@ export default {
   color: white;
 }
 #container {
+  display: flex;
+  align-items: flex-start;
   border: black solid 1px;
   max-height: 200px;
   max-width: 400px;
+  grid-area: list;
 
 }
 </style>
