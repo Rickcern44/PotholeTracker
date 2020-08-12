@@ -1,13 +1,16 @@
 <template>
   <div id="register" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Register and Update Employee Accounts</h1>
+    <img id="banner" src="https://www.artba.org/wp-content/uploads/2019/04/silicaCompliance_banner.jpg" alt="Cleveland Roadwork Image">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      
       <div
         class="alert alert-danger"
         role="alert"
         v-if="registrationErrors"
       >{{ registrationErrorMsg }}</div>
-      <label for="username" class="sr-only">Username</label>
+      <h3 id="registerHead">Register New Employee</h3>
+      <!-- <label for="username" class="sr-only">Username</label> -->
       <input
         type="text"
         id="username"
@@ -17,7 +20,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <!-- <label for="password" class="sr-only">Password</label> -->
       <input
         type="password"
         id="password"
@@ -34,26 +37,33 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+      <!-- <router-link :to="{ name: 'login' }">Have an account?</router-link> -->
+      <button class="createButton" type="submit">Create Account</button>
     </form>
     <div class="updateSelection">
-      <form @submit.prevent="submit">
-        <input type="text" placeholder="User Id" v-model="userId" />
-        <input type="text" placeholder="First Name" v-model="firstName" />
-        <input type="text" placeholder="Last Name" v-model="lastName" />
-        <input type="text" placeholder="Email" v-model="email" />
-        <input type="text" placeholder="Phone Number" v-model="phoneNumber" />
+      <h3 id="updateHeader">Update Employee</h3>
+      <form id="updateForm" @submit.prevent="submit">
+        <input id="uid" type="text" placeholder="User Id" v-model="userId" required />
+        <input id="ufn" type="text" placeholder="First Name" v-model="firstName" required />
+        <input id="uln" type="text" placeholder="Last Name" v-model="lastName" required />
+        <input id="uem" type="text" placeholder="Email" v-model="email" />
+        <input id="upn" type="text" placeholder="Phone Number" v-model="phoneNumber" />
         <button type="submit" id="button"  v-on:click="updateUserFirstName(), updateLastName(), updateEmail(), updatePhone(), updatePage()">Submit</button>
       </form>
     </div>
-    <div class="userList" v-for="employee in employeeList" :key="employee.userId">
-      <p>UserID: {{employee.userId}}</p>
-      <p>First Name: {{employee.firstName}}</p>
-      <p>Last Name: {{employee.lastName}}</p>
-      <p>Email: {{employee.email}}</p>
-      <p>Phone: {{employee.phoneNumber}}</p>
+    <div id="listContainer">
+      <h2 id="listHead">Employee List</h2>
+      <div class="userList" v-for="employee in employeeList" :key="employee.userId">
+      <ul>
+        <p>UserID: {{employee.userId}}</p>
+        <p>First Name: {{employee.firstName}}</p>
+        <p>Last Name: {{employee.lastName}}</p>
+        <p>Email: {{employee.email}}</p>
+        <p>Phone: {{employee.phoneNumber}}</p>
+      </ul>
     </div>
+    </div>
+    
   </div>
 </template>
 
@@ -148,4 +158,101 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#register {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  row-gap: 5px;
+  column-gap: 5px;
+  align-items: center;
+  grid-template-areas:
+    "header  header   header"
+    "top     top      top"
+    "emps    register update"
+  ;
+}
+#banner {
+  grid-area: top;
+  height: 350px;
+  width: fit-content;
+}
+#listContainer {
+  grid-area: emps;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 500px;
+}
+.userList {
+  border: black solid 3px;
+  text-align: center;
+  background-color: lightslategray;
+}
+.userList:hover {
+  background-color: grey;
+}
+#listHead {
+  grid-area: register;
+  text-align: center;
+}
+.form-register {
+  display: flex;
+  flex-direction: column;
+  /* row-gap: 5px; */
+  align-items: flex-end;  
+  grid-area: register;
+  max-width: 400px;
+}
+.updateSelection {
+  display: flex;
+  flex-direction: column;
+  grid-area: update;
+  align-items: flex-start;
+}
+#updateForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 15px;
+}
+#updateHeader {
+  grid-area: update;
+  text-decoration: underline;
+}
+h1 {
+  grid-area: header;
+}
+#registerHead {
+  display: flex;
+  align-items: center;
+  grid-area: register;
+  text-decoration: underline;
+  text-align: center;
+  width: 200px;
+}
+/* .sr-only {
+  margin: 15px;
+} */
+#uid, #ufn, #uln, #uem, #upn {
+  width: 200px;
+}
+.createButton {
+  width: 200px;
+  margin: 15px;
+  background-color: lightseagreen;
+}
+.createButton:hover {
+  border: 2px black solid;
+  background-color: darkseagreen;
+}
+#button {
+  background-color: lightseagreen;
+}
+#button:hover {
+  border: 2px black solid;
+  background-color: darkseagreen;
+}
+#username, #password, #confirmPassword {
+  width: 200px;
+  margin: 15px;
+}
+</style>
