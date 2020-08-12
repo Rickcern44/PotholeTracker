@@ -39,7 +39,7 @@ computed:{
 }
 </script>
 
-<style>
+<style scoped>
 .reported{
   color: red;
   font-weight: 900;
