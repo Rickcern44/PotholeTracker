@@ -191,11 +191,11 @@ export default {
 .userList {
   border: black solid 3px;
   text-align: center;
-  background-color: lightslategray;
+  background-color: #FEF6EB;
   padding-right: 30px;
 }
 .userList:hover {
-  background-color: grey;
+  background-color: #BEB9B5;
 }
 #listHead {
   grid-area: register;

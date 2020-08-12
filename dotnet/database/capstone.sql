@@ -12,7 +12,7 @@ USE PotholeTracker
 GO
 
 -- ************************************** [Users]
---drop table Users
+drop table Users
 CREATE TABLE [Users]
 (
  [user_id]      int IDENTITY (1,1) NOT NULL ,
