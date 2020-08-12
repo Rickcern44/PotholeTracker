@@ -192,6 +192,7 @@ export default {
   border: black solid 3px;
   text-align: center;
   background-color: lightslategray;
+  padding-right: 30px;
 }
 .userList:hover {
   background-color: grey;
@@ -212,7 +213,7 @@ export default {
   display: flex;
   flex-direction: column;
   grid-area: update;
-  align-items: flex-start;
+  align-items: center;
 }
 #updateForm {
   display: flex;
@@ -248,20 +249,26 @@ text-align: center;
   width: 200px;
 }
 .createButton {
-  width: 200px;
+  width: 208px;
   margin: 15px;
+  color: white;
   background-color: lightseagreen;
+  border-radius: 5px;
 }
 .createButton:hover {
   border: 2px black solid;
   background-color: darkseagreen;
+  border: black solid 2px;
 }
 #button {
   background-color: lightseagreen;
+  border-radius: 5px;
+  color: white;
 }
 #button:hover {
   border: 2px black solid;
   background-color: darkseagreen;
+  border: black solid 2px;
 }
 #username, #password, #confirmPassword {
   width: 200px;

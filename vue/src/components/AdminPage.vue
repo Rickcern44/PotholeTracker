@@ -80,7 +80,7 @@ export default {
   text-align: center;
   /* align-self: flex-start; */
   font-weight: bolder;
-  background-color: lawngreen;
+  background-color: lightseagreen;
   height: 60px;
   grid-area: list;
   box-shadow: black 2px 2px;
@@ -89,6 +89,7 @@ export default {
 }
 #admin-button:hover {
   border: black solid 3px;
+  background-color: darkseagreen;
 }
 #main-grid {
   display: grid;
