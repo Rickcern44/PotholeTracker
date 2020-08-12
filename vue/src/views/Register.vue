@@ -42,18 +42,18 @@
     </form>
     <div class="updateSelection">
       <h3 id="updateHeader">Update Employee</h3>
-      <form id="updateForm" @submit.prevent="submit">
+      <form id="updateForm">
         <input id="uid" type="text" placeholder="User Id" v-model="userId" required />
         <input id="ufn" type="text" placeholder="First Name" v-model="firstName" required />
         <input id="uln" type="text" placeholder="Last Name" v-model="lastName" required />
         <input id="uem" type="text" placeholder="Email" v-model="email" />
         <input id="upn" type="text" placeholder="Phone Number" v-model="phoneNumber" />
-        <button type="submit" id="button"  v-on:click="updateUserFirstName(), updateLastName(), updateEmail(), updatePhone(), updatePage()">Submit</button>
+        <button type="submit" id="button"  v-on:click.stop="updateUserFirstName(), updateLastName(), updateEmail(), updatePhone(), updatePage()">Submit</button>
       </form>
     </div>
     <div id="listContainer">
       <h2 id="listHead">Employee List</h2>
-      <div class="userList" v-for="employee in employeeList" :key="employee.userId">
+      <div class="userList" v-for="employee in employeeList" :key="employee.userId" @click="assignUserId(employee.userId)">
       <ul>
         <p>UserID: {{employee.userId}}</p>
         <p>First Name: {{employee.firstName}}</p>
@@ -107,7 +107,7 @@ export default {
           .then((response) => {
             if (response.status == 201) {
               this.$router.push({
-                path: "/login",
+                path: "/",
                 query: { registration: "success" },
               });
             }
@@ -125,7 +125,9 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = "There were problems registering this user.";
     },
-
+    assignUserId(id){
+      this.userId = id 
+    },
     updateUserFirstName(id, firstName) {
       id = this.userId;
       firstName = this.firstName;

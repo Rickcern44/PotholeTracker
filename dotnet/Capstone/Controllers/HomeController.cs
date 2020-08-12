@@ -19,7 +19,7 @@ namespace Capstone.Controllers
         {
             this.potholeDAO = potholeDAO;
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult<List<Pothole>> GetAllPotholes()
         {
@@ -27,6 +27,7 @@ namespace Capstone.Controllers
             return potholes;
 
         }
+        [AllowAnonymous]
         [HttpPost("Report")]
         public ActionResult<Pothole> ReportPothole(Pothole pothole)
         {
