@@ -101,8 +101,11 @@ body {
 
 #headerImg {
     /*height was 300px*/
-    margin-left: auto;
-    margin-right: auto;
-    height: 350px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    height: 375px;
+    width: 100%;
+    /* display: flex;
+    justify-self: center; */
 }
 </style>

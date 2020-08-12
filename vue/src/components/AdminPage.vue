@@ -65,15 +65,16 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 #page-title {
   text-align: center;
   font-weight: bold;
-  font-family: "Oswald", sans-serif;
+  
 }
 
 #admin-button {
   /* display: flex; */
-  font-family: "Oswald", sans-serif;
+  
   font-size: 20px;
   justify-content: center;
   text-align: center;
@@ -144,5 +145,8 @@ export default {
   text-align: center;
   grid-area: list;
 
+}
+* {
+  font-family: "Oswald", sans-serif;
 }
 </style>
