@@ -87,7 +87,13 @@ export default {
 #admin-button:hover {
   border: black solid 3px;
 }
-
+#main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "list  button ohio"
+    "footer  . .";
+}
 #content {
   display: flex;
   /* flex-grow: 1; */
@@ -103,13 +109,7 @@ export default {
   /* text-align: center; */
   /* padding-top: 190px; */
 }
-#main-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    "list  button ohio"
-    "footer  . .";
-}
+
 
 #ohio {
   grid-area: ohio;
@@ -127,9 +127,12 @@ export default {
   color: white;
 }
 #container {
+  display: flex;
+  align-items: flex-start;
   border: black solid 1px;
   max-height: 200px;
   max-width: 400px;
+  grid-area: list;
 
 }
 </style>

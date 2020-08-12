@@ -183,7 +183,7 @@ header img {
 }
 #content {
   display: flex;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   flex-direction: column;
   justify-content: center;
   object-fit: contain;

@@ -11,7 +11,13 @@ export default {
   components: {
     employee
   },
-  name: "home"
+  name: "home",
+  data(){
+    return{
+    }
+  },
+  methods:{
+  }
 };
 </script>
 <style>
