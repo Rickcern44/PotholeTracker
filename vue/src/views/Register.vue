@@ -1,6 +1,7 @@
 <template>
   <div id="register" class="text-center">
-    <h1 class="h3 mb-3 font-weight-normal">Register and Update Employee Accounts</h1>
+    <h1 class="h3 mb-3 font-weight-normal">The Cleveland Pothole Tracker</h1>
+    <h2 class="h2-header">Register & Update Employee Accounts</h2>
     <img id="banner" src="https://www.artba.org/wp-content/uploads/2019/04/silicaCompliance_banner.jpg" alt="Cleveland Roadwork Image">
     <form class="form-register" @submit.prevent="register">
       
@@ -161,6 +162,7 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 #register {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
@@ -169,6 +171,7 @@ export default {
   align-items: center;
   grid-template-areas:
     "header  header   header"
+    "header2  header2   header2"
     "top     top      top"
     "emps    register update"
   ;
@@ -222,6 +225,12 @@ export default {
 }
 h1 {
   grid-area: header;
+  
+}
+.h2-header {
+grid-area: header2;
+text-align: center;
+
 }
 #registerHead {
   display: flex;
@@ -256,5 +265,8 @@ h1 {
 #username, #password, #confirmPassword {
   width: 200px;
   margin: 15px;
+}
+* {
+  font-family: "Oswald", sans-serif;
 }
 </style>
