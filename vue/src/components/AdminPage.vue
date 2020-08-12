@@ -131,6 +131,7 @@ export default {
 } */
 #footer {
   grid-area: footer;
+  max-height: 10px;
 }
 #rlink {
   color: white;
