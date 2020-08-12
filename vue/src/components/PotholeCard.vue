@@ -58,6 +58,8 @@ computed:{
   background-color: lightgray;
 }
 .card{
+  display: flex;
+  flex-direction: column;
   margin-right: 20px;
 }
 </style>

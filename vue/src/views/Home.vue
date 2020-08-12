@@ -189,16 +189,17 @@ header img {
   flex-direction: column;
   justify-content: center;
   background-color: snow;
-  object-fit: contain;
+  /* object-fit: contain; */
   align-self: flex-end;
+  justify-content: flex-start;
   grid-area: list;
   border: black solid 3px;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 600px;
   text-align: center;
-  padding-top: 190px;
 }
+
 #map {
   display: flex;
   justify-content: flex-end;
