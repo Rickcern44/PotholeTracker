@@ -3,7 +3,7 @@
     <h1 class="h3 mb-3 font-weight-normal">The Cleveland Pothole Tracker</h1>
     <h2 class="h2-header">Register & Update Employee Accounts</h2>
     <img id="banner" src="https://www.artba.org/wp-content/uploads/2019/04/silicaCompliance_banner.jpg" alt="Cleveland Roadwork Image">
-    <form class="form-register" @submit.stop="register">
+    <form class="form-register" @submit.once="register">
       
       <div
         class="alert alert-danger"
@@ -43,13 +43,13 @@
     </form>
     <div class="updateSelection">
       <h3 id="updateHeader">Update Employee</h3>
-      <form id="updateForm">
+      <form id="updateForm" v-on:click="updateAll">
         <input id="uid" type="text" placeholder="User Id" v-model="userId" required />
         <input id="ufn" type="text" placeholder="First Name" v-model="firstName" required />
         <input id="uln" type="text" placeholder="Last Name" v-model="lastName" required />
         <input id="uem" type="text" placeholder="Email" v-model="email" />
         <input id="upn" type="text" placeholder="Phone Number" v-model="phoneNumber" />
-        <button type="submit" id="button"  v-on:click.stop="updateUserFirstName(), updateLastName(), updateEmail(), updatePhone(), updatePage()">Submit</button>
+        <button type="submit" id="button"  >Submit</button>
       </form>
     </div>
     <div id="listContainer">
@@ -155,6 +155,12 @@ export default {
       api.getAllUsers().then(resp => {
         this.employeeList = resp.data
       })
+    },
+    updateAll(){
+      this.updateUserFirstName();
+      this.updateLastName();
+      this.updateEmail();
+      this.updatePhone();
     }
   },
 
