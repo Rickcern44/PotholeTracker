@@ -11,15 +11,17 @@
   <body id="main-grid">
     <div id="content" class="admin-pthl-list" v-for="pothole in potholes" :key="pothole.id">
       <div id ="container">
-        <p>Pothole ID: {{pothole.id}}</p>
-        <p>Pothole Location: {{pothole.location}}</p>
-        <p>Status: {{pothole.status}}</p>
+      <ul>
+        <!-- <li>Pothole ID: {{pothole.id}}</li>
+        <li>Pothole Location: {{pothole.location}}</li>
+        <li>Status: {{pothole.status}}</li> -->
         <!-- Update status dropdown -->
-        <p>Description: {{pothole.description}}</p>
-        <p>Date Added: {{pothole.dateAdded}}</p>
-        <p>Severity: {{pothole.severity}}</p>
+        <!-- <li>Description: {{pothole.description}}</li>
+        <li>Date Added: {{pothole.dateAdded}}</li>
+        <li>Severity: {{pothole.severity}}</li> -->
         <!-- Update severity dropdown -->
-        <p>Employees Assigned: {{pothole.userId}}</p>
+        <!-- <li>Employees Assigned: {{pothole.userId}}</li> -->
+      </ul>
       </div>
     </div>
     <button id="admin-button">
@@ -60,7 +62,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #page-title {
   text-align: center;
   font-weight: bold;
@@ -88,17 +90,17 @@ export default {
 
 #content {
   display: flex;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   flex-direction: column;
-  justify-content: center;
-  object-fit: contain;
-  align-self: auto;
+  /* justify-content: center; */
+  /* object-fit: contain; */
+  /* align-self: auto; */
   grid-area: list;
-  border: black solid 2px;
+  /* border: black solid 2px; */
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 600px;
-  text-align: center;
+  /* text-align: center; */
   /* padding-top: 190px; */
 }
 #main-grid {
@@ -115,9 +117,9 @@ export default {
   /* align-self: ; */
 }
 
-.admin-pthl-list {
+/* .admin-pthl-list {
   grid-area: list;
-}
+} */
 #footer {
   grid-area: footer;
 }
@@ -125,7 +127,9 @@ export default {
   color: white;
 }
 #container {
-  border: black 1px;
-  
+  border: black solid 1px;
+  max-height: 200px;
+  max-width: 400px;
+
 }
 </style>
