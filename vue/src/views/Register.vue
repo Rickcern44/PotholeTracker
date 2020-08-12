@@ -64,8 +64,9 @@
       </ul>
     </div>
     </div>
-    
+  <footer id="footer">&copy; The Pothole Tracker 2020</footer>
   </div>
+  
 </template>
 
 <script>
