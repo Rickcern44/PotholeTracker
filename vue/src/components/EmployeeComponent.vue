@@ -75,7 +75,7 @@ body {
 }
 
 #left-panel {
-    background-color: lightgray;
+    background-color: lightslategray;
     display: flex;
     flex-direction: column;
     flex-basis: 100%;

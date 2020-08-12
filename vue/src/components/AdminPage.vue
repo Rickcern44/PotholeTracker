@@ -145,7 +145,11 @@ export default {
   max-width: 500px;
   text-align: center;
   grid-area: list;
+  background-color: lightslategray;
 
+}
+#emp-list:hover {
+  background-color: grey;
 }
 * {
   font-family: "Oswald", sans-serif;
