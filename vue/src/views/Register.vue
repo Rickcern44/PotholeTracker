@@ -262,9 +262,9 @@ text-align: center;
   border-radius: 5px;
 }
 .createButton:hover {
-  border: 2px black solid;
+  /* border: 2px black solid; */
   background-color: #C25B56;
-  border: black solid 2px;
+  /* border: black solid 2px; not doing anything*/
 }
 #button {
   background-color: #96C0CE;
@@ -272,9 +272,9 @@ text-align: center;
   color: white;
 }
 #button:hover {
-  border: 2px black solid;
+  /* border: 2px black solid; */
   background-color: #C25B56;
-  border: black solid 2px;
+  /* border: black solid 2px; */
 }
 #username, #password, #confirmPassword {
   width: 200px;

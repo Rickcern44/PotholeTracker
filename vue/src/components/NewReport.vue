@@ -101,7 +101,7 @@ export default {
     }
     form{
         text-align: center;
-        background: lightgray;
+        background: #BEB9B5;
         width: 30%;
         padding: 40px;
         margin: 10px auto;
@@ -111,7 +111,7 @@ export default {
 
     }
     #button{
-        background-color:lawngreen;
+        background-color:#96C0CE;
         text-align: center;
         justify-content: center;
         padding: 5px;
@@ -126,8 +126,8 @@ export default {
     }
 
     #button:hover {
+        background-color: #C25B56;
         border: black solid 2px;
-        
     } 
     #container{
         display:flex;

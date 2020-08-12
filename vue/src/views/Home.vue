@@ -143,7 +143,7 @@ header img {
 }
 #container {
   display: grid;
-  background-color: slategray;
+  background-color: #74828F;
   padding: 20px;
   border-radius: 10px;
   grid-template-columns: 1.5fr 2fr;

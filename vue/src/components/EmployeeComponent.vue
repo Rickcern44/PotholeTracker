@@ -70,12 +70,12 @@ body {
     /* margin-bottom: 10px; */
 }
 .empPthlCard:hover {
-    background-color:gray; /*was lightblue*/
+    background-color:#74828F; /*was lightblue*/
     font-weight: bolder;
 }
 
 #left-panel {
-    background-color: lightslategray;
+    background-color: #525564;
     display: flex;
     flex-direction: column;
     flex-basis: 100%;

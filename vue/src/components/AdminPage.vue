@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <h1 id="page-title">The Cleveland Pothole Tracker</h1>
-  <h2 id="page-title">Admin Page</h2>
+  <h2 id="page-title">Administration Page</h2>
   <body id="main-grid">
     <div id="content" >
       <!-- <div id ="container"> -->
@@ -90,6 +90,7 @@ export default {
 #admin-button:hover {
   border: black solid 3px;
   background-color: #C25B56;
+  border: black solid 3px;
 }
 #main-grid {
   display: grid;

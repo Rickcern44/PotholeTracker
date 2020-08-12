@@ -93,15 +93,20 @@ export default {
 .work-completed{
   color: green;
 }
-
+#dropdownStatus {
+  background-color: #96C0CE;
+}
 #dropdownStatus:hover {
   border: black solid 1px;
-  background-color: lightskyblue; 
+  background-color: #C25B56; 
+}
+#dropdownSeverity {
+  background-color: #96C0CE;
 }
 
 #dropdownSeverity:hover {
   border: black solid 1px;  
-  background-color: lightskyblue;
+  background-color: #C25B56;
 }
 
 

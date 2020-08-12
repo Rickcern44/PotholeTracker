@@ -55,7 +55,7 @@ computed:{
   font-weight: 900;
 }
 .card:hover{
-  background-color: lightgray;
+  background-color: #BEB9B5;
 }
 .card{
   display: flex;
