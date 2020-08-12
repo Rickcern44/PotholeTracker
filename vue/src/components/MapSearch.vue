@@ -9,7 +9,7 @@
       <br />
     </div>
     <br />
-    <gmap-map :center="center" :zoom="12" style="width: 1025px;  height: 600px;">
+    <gmap-map :options="{fullscreenControl: false}" :center="center" :zoom="12" style="width: 1025px;  height: 600px;">
       <!-- Here is the info window code -->
       <gmap-info-window
         :options="infoOptions"

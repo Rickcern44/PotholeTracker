@@ -3,7 +3,7 @@
     <h1 class="h3 mb-3 font-weight-normal">The Cleveland Pothole Tracker</h1>
     <h2 class="h2-header">Register & Update Employee Accounts</h2>
     <img id="banner" src="https://www.artba.org/wp-content/uploads/2019/04/silicaCompliance_banner.jpg" alt="Cleveland Roadwork Image">
-    <form class="form-register" @submit.prevent="register">
+    <form class="form-register" @submit.stop="register">
       
       <div
         class="alert alert-danger"
