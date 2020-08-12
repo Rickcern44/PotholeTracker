@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style scoped>
-/* .reported{
+.reported{
   color: red;
 }
 
@@ -92,7 +92,7 @@ export default {
 
 .work-completed{
   color: green;
-} */
+}
 
 #dropdownStatus:hover {
   border: black solid 1px;
@@ -111,5 +111,6 @@ export default {
   border-image: url(https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/797fb274-3d77-4bf5-8f74-2cb547bc5845) 50010;
   border-image-repeat: repeat;*/
   padding-bottom: 15px;
+  font-weight: bold;
 } 
 </style>
