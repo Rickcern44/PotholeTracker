@@ -80,7 +80,7 @@ export default {
   text-align: center;
   /* align-self: flex-start; */
   font-weight: bolder;
-  background-color: lightseagreen;
+  background-color: #96C0CE;
   height: 60px;
   grid-area: list;
   box-shadow: black 2px 2px;
@@ -89,7 +89,7 @@ export default {
 }
 #admin-button:hover {
   border: black solid 3px;
-  background-color: darkseagreen;
+  background-color: #C25B56;
 }
 #main-grid {
   display: grid;
@@ -146,11 +146,11 @@ export default {
   max-width: 500px;
   text-align: center;
   grid-area: list;
-  background-color: lightslategray;
+  background-color: #FEF6EB;
 
 }
 #emp-list:hover {
-  background-color: grey;
+  background-color: #BEB9B5;
 }
 * {
   font-family: "Oswald", sans-serif;

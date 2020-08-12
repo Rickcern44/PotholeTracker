@@ -252,22 +252,22 @@ text-align: center;
   width: 208px;
   margin: 15px;
   color: white;
-  background-color: lightseagreen;
+  background-color: #96C0CE;
   border-radius: 5px;
 }
 .createButton:hover {
   border: 2px black solid;
-  background-color: darkseagreen;
+  background-color: #C25B56;
   border: black solid 2px;
 }
 #button {
-  background-color: lightseagreen;
+  background-color: #96C0CE;
   border-radius: 5px;
   color: white;
 }
 #button:hover {
   border: 2px black solid;
-  background-color: darkseagreen;
+  background-color: #C25B56;
   border: black solid 2px;
 }
 #username, #password, #confirmPassword {
