@@ -9,20 +9,22 @@
   <h1 id="page-title">The Cleveland Pothole Tracker</h1>
   <h2 id="page-title">Admin Page</h2>
   <body id="main-grid">
-    <div id="content" class="admin-pthl-list" v-for="pothole in potholes" :key="pothole.id">
-      <div id ="container">
+    <div id="content" >
+      <!-- <div id ="container"> -->
+      <div id="emp-list" v-for="pothole in potholes" :key="pothole.id">
       <ul>
-        <li>Pothole ID: {{pothole.id}}</li>
-        <li>Pothole Location: {{pothole.location}}</li>
-        <li>Status: {{pothole.status}}</li>
+        <p>Pothole ID: {{pothole.id}}</p>
+        <p>Pothole Location: {{pothole.location}}</p>
+        <p>Status: {{pothole.status}}</p>
         <!-- Update status dropdown -->
-        <li>Description: {{pothole.description}}</li>
-        <li>Date Added: {{pothole.dateAdded}}</li>
-        <li>Severity: {{pothole.severity}}</li>
+        <p>Description: {{pothole.description}}</p>
+        <p>Date Added: {{pothole.dateAdded}}</p>
+        <p>Severity: {{pothole.severity}}</p>
         <!-- Update severity dropdown -->
-        <li>Employees Assigned: {{pothole.userId}}</li>
+        <p>Employees Assigned: {{pothole.userId}}</p>
       </ul>
       </div>
+      <!-- </div> -->
     </div>
     <button id="admin-button">
       <router-link id="rlink" :to="{ name: 'register' }">Register a new employee</router-link>
@@ -89,7 +91,7 @@ export default {
 }
 #main-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr .5fr 1fr;
   grid-template-areas:
     "list  button ohio"
     "footer  . .";
@@ -105,9 +107,15 @@ export default {
   /* border: black solid 2px; */
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 600px;
+  max-height: 535px;
   /* text-align: center; */
   /* padding-top: 190px; */
+  /* display: flex; */
+  /* align-items: flex-start; */
+  border: black solid 1px;
+  /* max-height: 200px; */
+  max-width: 450px;
+  /* grid-area: list; */
 }
 
 
@@ -126,12 +134,14 @@ export default {
 #rlink {
   color: white;
 }
-#container {
+#emp-list {
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  flex-direction: column;
   border: black solid 1px;
-  max-height: 200px;
-  max-width: 400px;
+  max-height: 300px;
+  max-width: 500px;
+  text-align: center;
   grid-area: list;
 
 }
