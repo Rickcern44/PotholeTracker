@@ -1,6 +1,8 @@
 ﻿using Capstone.DAO;
 using Capstone.Models;
 using Capstone.Security;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -20,6 +22,7 @@ namespace Capstone.Controllers
             passwordHasher = _passwordHasher;
             userDAO = _userDAO;
         }
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult<List<ReturnUser>> GetAllUsers()
         {
@@ -27,6 +30,7 @@ namespace Capstone.Controllers
 
             return users;
         }
+        [Authorize(Roles = "admin")]
         [HttpPut("Update/id={id}&firstName={firstName}")]
         public ActionResult<string> UpdateUserFirstName(int id, string firstName)
         {
@@ -34,6 +38,7 @@ namespace Capstone.Controllers
             message = userDAO.UpdateFirstName(id, firstName);
             return message;
         }
+        [Authorize(Roles = "admin")]
         [HttpPut("Update/id={id}&lastname={lastName}")]
         public ActionResult<string> UpdateUserLastName(int id, string lastName)
         {
@@ -41,6 +46,7 @@ namespace Capstone.Controllers
             message = userDAO.UpdateLastName(id, lastName);
             return message;
         }
+        [Authorize(Roles = "admin")]
         [HttpPut("Update/id={id}&email={email}")]
         public ActionResult<string> UpdateUserEmail(int id, string email)
         {
@@ -48,6 +54,7 @@ namespace Capstone.Controllers
             message = userDAO.UpdateEmail(id, email);
             return message;
         }
+        [Authorize(Roles = "admin")]
         [HttpPut("Update/id={id}&phone={phone}")]
         public ActionResult<string> UpdateUserPhone(int id, string phone)
         {

@@ -17,7 +17,7 @@
       <p>Date Added: {{pothole.dateAdded}}</p>
       <p>Severity: {{pothole.severity}}</p>
       <!-- Update severity dropdown -->
-      <p>Employees Assigned: {{pothole.userId}}</p>
+      <!-- <p>Employees Assigned: {{pothole.userId}}</p> -->
     </div>
     <div>
       <router-link :to="{ name: 'register' }">Register a new employee</router-link>
