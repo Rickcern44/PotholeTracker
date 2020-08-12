@@ -1,10 +1,10 @@
 <template>
   <div>
     <div id="search">
-      <h2>Search and add a pin</h2>
+      <!-- <h2>Search and add a pin</h2> -->
       <label>
-        <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete>
-        <button @click="addMarkerToArray()">Add</button>
+        <!-- <gmap-autocomplete @place_changed="setPlace"></gmap-autocomplete> -->
+        <button id="refresh-button" @click="addMarkerToArray()">Refresh Pothole Markers</button>
       </label>
       <br />
     </div>
@@ -134,6 +134,9 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+#refresh-button{
+  font-weight: bold;
 }
 </style>
 

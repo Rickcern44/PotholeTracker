@@ -143,6 +143,9 @@ header img {
 }
 #container {
   display: grid;
+  background-color: slategray;
+  padding: 20px;
+  border-radius: 10px;
   grid-template-columns: 1.5fr 2fr;
   row-gap: 5px;
   column-gap: 5px;
@@ -161,7 +164,6 @@ header img {
   font-weight: 800;
   background-color: red;
   height: 60px;
-  grid-area: list;
   box-shadow: black 2px 2px;
   border-radius: 5px;
 }
@@ -186,6 +188,7 @@ header img {
   /* flex-grow: 1; */
   flex-direction: column;
   justify-content: center;
+  background-color: snow;
   object-fit: contain;
   align-self: flex-end;
   grid-area: list;

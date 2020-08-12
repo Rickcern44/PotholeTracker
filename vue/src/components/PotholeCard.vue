@@ -54,4 +54,10 @@ computed:{
   color: green;
   font-weight: 900;
 }
+.card:hover{
+  background-color: lightgray;
+}
+.card{
+  margin-right: 20px;
+}
 </style>
