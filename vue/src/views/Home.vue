@@ -262,6 +262,7 @@ body {
     overflow-x: hidden;
     max-height: 600px;
     text-align: center;
+    /* Change */
   }
 
   #map {
