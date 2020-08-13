@@ -125,165 +125,97 @@ export default {
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+}
 
-/* body {
-  background-color: darkgoldenrod;
-} */
-/* Tablet */
-/* @media only screen and (min-width: 600px) {
-  body {
-    background-color: white;
-  }
-  #container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "login login login login" "button button button button" "list list list list " "map map map map";
-    background-color: #74828f;
-    padding: 20px;
-    border-radius: 10px;
-    grid-template-columns: 1.5fr 2fr;
-    row-gap: 5px;
-    column-gap: 5px;
-    width: 100%;
-  }
-  #report-button {
-    display: flex;
-    font-size: 30px;
-    justify-content: center;
-    align-self: flex-start;
-    grid-area: button;
-    margin: 20px 0px 20px 0px;
-    font-weight: 600;
-    background-color: red;
-    box-shadow: black 2px 2px;
-    border-radius: 5px;
-  }
-  #header-image {
-    /* increased height from 250px
-    height: 300px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  #content {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    align-self: center;
-    background-color: snow;
-    object-fit: contain;
-    grid-area: list;
-    border: black solid 3px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 400px;
-    text-align: center;
-  }
-  #login {
-    display: flex;
-    grid-area: login;
-    flex-grow: 1;
-    justify-content: center;
-  }
-  #map {
-    display: flex;
-    grid-area: map;
-    contain: content;
-    place-items: center;
-    margin: 10px;
-    padding: 10px;
-  }
-  .card {
-    border-bottom: black solid 1px;
-  }
-  #footer {
-    grid-area: footer;
-    text-align: left;
-    margin: 10px;
-  }
-}*/
+header img {
+  /* increased height from 250px */
+  height: 375px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#title {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+}
+#container {
+  display: grid;
+  background-color: #74828F;
+  padding: 20px;
+  border-radius: 10px;
+  grid-template-columns: 1.5fr 2fr;
+  row-gap: 5px;
+  column-gap: 5px;
+  align-items: center;
+  grid-template-areas:
+    "button login"
+    "list map";
+}
 
-/* Desktop */
-@media only screen and (min-width: 768px) {
-  #title {
-    text-align: center;
-    font-family: "Oswald", sans-serif;
-  }
-  #container {
-    display: grid;
-    background-color: #74828f;
-    padding: 20px;
-    border-radius: 10px;
-    grid-template-columns: 1.5fr 2fr;
-    row-gap: 5px;
-    column-gap: 5px;
-    align-items: center;
-    grid-template-areas:
-      "button login"
-      "list map";
-  }
+#report-button {
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  justify-content: center;
+  align-self: flex-start;
+  font-weight: 800;
+  background-color: red;
+  height: 60px;
+  box-shadow: black 2px 2px;
+  border-radius: 5px;
+}
+.sr-only{
+  padding: 10px;
+}
+#login-button{
+  margin-left: 10px;
+}
 
-  #report-button {
-    display: flex;
-    font-family: "Oswald", sans-serif;
-    font-size: 30px;
-    justify-content: center;
-    align-self: flex-start;
-    font-weight: 800;
-    background-color: red;
-    height: 60px;
-    box-shadow: black 2px 2px;
-    border-radius: 5px;
-  }
-  .sr-only {
-    padding: 10px;
-  }
-  #login-button {
-    margin-left: 10px;
-  }
+#report-button:hover {
+  border: black solid 3px; /*was 5px*/
 
-  #report-button:hover {
-    border: black solid 3px; /*was 5px*/
-  }
-  #login {
-    display: flex;
-    grid-area: login;
-    justify-content: flex-end;
-  }
-  #content {
-    display: flex;
-    /* flex-grow: 1; */
-    flex-direction: column;
-    background-color: snow;
-    justify-content: center;
-    align-content: flex-start;
-    grid-area: list;
-    border: black solid 3px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 600px;
-    text-align: center;
-  }
+}
 
-  #map {
-    display: flex;
-    grid-area: map;
-    justify-self: center;
-    align-content: flex-start;
-    width: 100%;
-  }
+#login {
+  display: flex;
+  grid-area: login;
+  justify-content: flex-end;
+}
+#content {
+  display: flex;
+  /* flex-grow: 1; */
+  flex-direction: column;
+  justify-content: center;
+  background-color: snow;
+  /* object-fit: contain; */
+  align-self: flex-end;
+  justify-content: flex-start;
+  grid-area: list;
+  border: black solid 3px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 600px;
+  text-align: center;
+}
 
-  #rlink {
-    color: white;
-  }
-  #footer {
-    text-align: left;
-    margin: 10px;
-  }
+#map {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: map;
+  width: 100%;
+}
+.card {
+  border-bottom: black solid 1px;
+}
+#rlink {
+  color: white;
 }
 #footer{
 text-align: left;
 margin: 10px;
-/* Comment to change to new commit */
 }
 </style>
+
