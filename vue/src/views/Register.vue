@@ -43,13 +43,13 @@
     </form>
     <div class="updateSelection">
       <h3 id="updateHeader">Update Employee</h3>
-      <form id="updateForm" v-on:click="updateAll">
-        <input id="uid" type="text" placeholder="User Id" v-model="userId" required />
-        <input id="ufn" type="text" placeholder="First Name" v-model="firstName" required />
-        <input id="uln" type="text" placeholder="Last Name" v-model="lastName" required />
-        <input id="uem" type="text" placeholder="Email" v-model="email" />
-        <input id="upn" type="text" placeholder="Phone Number" v-model="phoneNumber" />
-        <button type="submit" id="button"  >Submit</button>
+      <form id="updateForm"  >
+        <input id="uid" type="text" placeholder="User ID Number" v-model="userId" required />
+        <input id="ufn" type="text" placeholder="First Name" name="FirstName"  v-model="firstName" required />
+        <input id="uln" type="text" placeholder="Last Name" name="LastName" v-model="lastName" required />
+        <input id="uem" type="text" placeholder="Email" name="Email" v-model="email" />
+        <input id="upn" type="text" placeholder="Phone Number" name="PhoneNumber" v-model="phoneNumber" />
+        <button type="submit" id="button" v-on:click="updateAll();">Submit</button>
       </form>
     </div>
     <div id="listContainer">

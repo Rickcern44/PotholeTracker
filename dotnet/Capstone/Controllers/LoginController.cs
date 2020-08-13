@@ -31,19 +31,20 @@ namespace Capstone.Controllers
             return users;
         }
         //[Authorize(Roles = "admin")]
-        [HttpPut("Update/id={id}&firstName={firstName}")]
-        public ActionResult<string> UpdateUserFirstName(int id, string firstName)
-        {
-            string message = "";
-            message = userDAO.UpdateFirstName(id, firstName);
-            return message;
-        }
+
         //[Authorize(Roles = "admin")]
         [HttpPut("Update/id={id}&lastname={lastName}")]
         public ActionResult<string> UpdateUserLastName(int id, string lastName)
         {
             string message = "";
             message = userDAO.UpdateLastName(id, lastName);
+            return message;
+        }
+        [HttpPut("Update/id={id}&firstName={firstName}")]
+        public ActionResult<string> UpdateUserFirstName(int id, string firstName)
+        {
+            string message = "";
+            message = userDAO.UpdateFirstName(id, firstName);
             return message;
         }
         //[Authorize(Roles = "admin")]
