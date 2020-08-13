@@ -21,7 +21,7 @@
         <p>Date Added: {{pothole.dateAdded}}</p>
         <p>Severity: {{pothole.severity}}</p>
         <!-- Update severity dropdown -->
-        <p>Employees Assigned: {{pothole.userId}}</p>
+        <!-- <p>Employees Assigned: {{pothole.userId}}</p> -->
       </ul>
       </div>
       <!-- </div> -->

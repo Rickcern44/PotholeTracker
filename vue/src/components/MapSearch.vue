@@ -9,7 +9,7 @@
       <br />
     </div>
     <br />
-    <gmap-map :options="{fullscreenControl: false}" :center="center" :zoom="12" style="width: 1024px;  height: 600px;">
+    <gmap-map :options="{fullscreenControl: false}" :center="center" :zoom="14" style="width: 1024px;  height: 600px;">
       <!-- Here is the info window code -->
       <gmap-info-window
         :options="infoOptions"
@@ -60,7 +60,7 @@ export default {
     };
   },
   props: {
-    pothole: [],
+    pothole: Array,
   },
   mounted() {
     this.geolocate();
