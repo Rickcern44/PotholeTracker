@@ -9,7 +9,7 @@
       <br />
     </div>
     <br />
-    <gmap-map :options="{fullscreenControl: false}" :center="center" :zoom="12" style="width: 1025px;  height: 600px;">
+    <gmap-map :options="{fullscreenControl: false}" :center="center" :zoom="12" style="width: 1024px;  height: 600px;">
       <!-- Here is the info window code -->
       <gmap-info-window
         :options="infoOptions"
@@ -24,7 +24,7 @@
         :position="m.position"
         :clickable="true"
         @click="toggleInfoWindow(m,i),center= m.position"
-        icon="http://localhost:8080/construction.png"
+        icon="https://fluffypotholetrackerapi.azurewebsites.net/construction.png"
       ></gmap-marker>
       <div slot="visible">
         <div
