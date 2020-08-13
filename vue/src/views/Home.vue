@@ -126,11 +126,11 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 
-body {
+/* body {
   background-color: darkgoldenrod;
-}
+} */
 /* Tablet */
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
   body {
     background-color: white;
   }
@@ -160,7 +160,7 @@ body {
     border-radius: 5px;
   }
   #header-image {
-    /* increased height from 250px */
+    /* increased height from 250px
     height: 300px;
     width: 100%;
     margin-bottom: 10px;
@@ -171,7 +171,7 @@ body {
     flex-direction: column;
     align-self: center;
     background-color: snow;
-    /* object-fit: contain; */
+    object-fit: contain;
     grid-area: list;
     border: black solid 3px;
     overflow-y: auto;
@@ -201,7 +201,8 @@ body {
     text-align: left;
     margin: 10px;
   }
-}
+}*/
+
 /* Desktop */
 @media only screen and (min-width: 768px) {
   #title {

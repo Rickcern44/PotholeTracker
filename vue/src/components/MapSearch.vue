@@ -24,7 +24,7 @@
         :position="m.position"
         :clickable="true"
         @click="toggleInfoWindow(m,i),center= m.position"
-        icon="http://localhost:8080/construction.png"
+        icon="https://fluffypotholetrackerapi.azurewebsites.net/construction.png"
       ></gmap-marker>
       <div slot="visible">
         <div
