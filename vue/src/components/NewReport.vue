@@ -110,7 +110,7 @@ export default {
 
 
     }
-    #button, {
+    #button {
         background-color:#96C0CE;
         text-align: center;
         justify-content: center;
