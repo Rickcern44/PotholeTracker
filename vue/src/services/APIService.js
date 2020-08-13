@@ -22,16 +22,16 @@ export default {
     getAllUsers(){
         return axios.get('Login')
     },
-    updateUserFirstName(id, firstName){
-        return axios.put(`Login/Update/id=${id}&firstName=${firstName}`)
+    updateEmployee(emp){
+        return axios.put(`Login/Update/${emp.userId}`, emp)
     },
-    updateUserLastName(id, lastName){
-        return axios.put(`Login/Update/id=${id}&lastName=${lastName}`)
-    },
-    updateUserEmail(id, Email){
-        return axios.put(`Login/Update/id=${id}&email=${Email}`)
-    },
-    updateUserPhone(id, Phone){
-        return axios.put(`Login/Update/id=${id}&phone=${Phone}`)
-    }
+    // updateUserLastName(id, lastName){
+    //     return axios.put(`Login/Update/id=${id}&lastName=${lastName}`)
+    // },
+    // updateUserEmail(id, Email){
+    //     return axios.put(`Login/Update/id=${id}&email=${Email}`)
+    // },
+    // updateUserPhone(id, Phone){
+    //     return axios.put(`Login/Update/id=${id}&phone=${Phone}`)
+    // }
 }

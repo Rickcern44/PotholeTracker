@@ -44,17 +44,17 @@
     <div class="updateSelection">
       <h3 id="updateHeader">Update Employee</h3>
       <form id="updateForm"  >
-        <input id="uid" type="text" placeholder="User ID Number" v-model="userId" required />
-        <input id="ufn" type="text" placeholder="First Name" name="FirstName"  v-model="firstName" required />
-        <input id="uln" type="text" placeholder="Last Name" name="LastName" v-model="lastName" required />
-        <input id="uem" type="text" placeholder="Email" name="Email" v-model="email" />
-        <input id="upn" type="text" placeholder="Phone Number" name="PhoneNumber" v-model="phoneNumber" />
+        <input id="uid" type="text" placeholder="User ID Number" v-model="selectedEmployee.userId" required />
+        <input id="ufn" type="text" placeholder="First Name" name="FirstName"  v-model="selectedEmployee.firstName" required />
+        <input id="uln" type="text" placeholder="Last Name" name="LastName" v-model="selectedEmployee.lastName" required />
+        <input id="uem" type="text" placeholder="Email" name="Email" v-model="selectedEmployee.email" />
+        <input id="upn" type="text" placeholder="Phone Number" name="PhoneNumber" v-model="selectedEmployee.phoneNumber" />
         <button type="submit" id="button" v-on:click="updateAll();">Submit</button>
       </form>
     </div>
     <div id="listContainer">
       <h2 id="listHead">Employee List</h2>
-      <div class="userList" v-for="employee in employeeList" :key="employee.userId" @click="assignUserId(employee.userId)">
+      <div class="userList" v-for="employee in employeeList" :key="employee.userId" @click="assignUserId(employee)">
       <ul>
         <p>UserID: {{employee.userId}}</p>
         <p>First Name: {{employee.firstName}}</p>
@@ -82,15 +82,16 @@ export default {
         confirmPassword: "",
         role: "user",
       },
+      selectedEmployee:{},
       employeeList: [],
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
       //user info
       userId: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
+      // firstName: "",
+      // lastName: "",
+      // email: "",
+      // phoneNumber: "",
     };
   },
   created() {
@@ -127,8 +128,8 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = "There were problems registering this user.";
     },
-    assignUserId(id){
-      this.userId = id 
+    assignUserId(employee){
+      this.selectedEmployee = employee
     },
     updateUserFirstName(id, firstName) {
       id = this.userId;
@@ -157,14 +158,16 @@ export default {
       })
     },
     updateAll(){
-      this.updateUserFirstName();
-      this.updateLastName();
-      this.updateEmail();
-      this.updatePhone();
+        api.updateEmployee(this.selectedEmployee).then(resp => {
+          if (resp.status === 200){
+              alert("Employee Updated")
+          }else {
+            alert(`Error ${resp.statusText}`)
+          }
+          
+        })
     }
   },
-
-  computed() {},
 };
 </script>
 
@@ -261,7 +264,7 @@ text-align: center;
   background-color: #96C0CE;
   border-radius: 5px;
 }
-.createButton:hover {
+.createButton:hover,.createButton:focus{
   /* border: 2px black solid; */
   background-color: #C25B56;
   /* border: black solid 2px; not doing anything*/
@@ -271,10 +274,9 @@ text-align: center;
   border-radius: 5px;
   color: white;
 }
-#button:hover {
-  /* border: 2px black solid; */
-  background-color: #C25B56;
-  /* border: black solid 2px; */
+#button:hover, #button:focus {
+ 
+   background-color: #C25B56; 
 }
 #username, #password, #confirmPassword {
   width: 200px;

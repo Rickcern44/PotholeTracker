@@ -110,7 +110,7 @@ export default {
 
 
     }
-    #button{
+    #button, {
         background-color:#96C0CE;
         text-align: center;
         justify-content: center;
@@ -125,7 +125,7 @@ export default {
 
     }
 
-    #button:hover {
+    #button:hover, #button:focus {
         background-color: #C25B56;
         border: black solid 2px;
     } 

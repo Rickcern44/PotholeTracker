@@ -33,36 +33,35 @@ namespace Capstone.Controllers
         //[Authorize(Roles = "admin")]
 
         //[Authorize(Roles = "admin")]
-        [HttpPut("Update/id={id}&lastname={lastName}")]
-        public ActionResult<string> UpdateUserLastName(int id, string lastName)
+        //[HttpPut("Update/id={id}&lastname={lastName}")]
+        //public ActionResult<string> UpdateUserLastName(int id, string lastName)
+        //{
+        //    string message = "";
+        //    message = userDAO.UpdateLastName(id, lastName);
+        //    return message;
+        //}
+        [HttpPut("Update/{id}")]
+        public ActionResult UpdateEmployee(int id, User user)
         {
-            string message = "";
-            message = userDAO.UpdateLastName(id, lastName);
-            return message;
+            userDAO.UpdateEmployee(user);
+            return Ok();
         }
-        [HttpPut("Update/id={id}&firstName={firstName}")]
-        public ActionResult<string> UpdateUserFirstName(int id, string firstName)
-        {
-            string message = "";
-            message = userDAO.UpdateFirstName(id, firstName);
-            return message;
-        }
-        //[Authorize(Roles = "admin")]
-        [HttpPut("Update/id={id}&email={email}")]
-        public ActionResult<string> UpdateUserEmail(int id, string email)
-        {
-            string message = "";
-            message = userDAO.UpdateEmail(id, email);
-            return message;
-        }
-        //[Authorize(Roles = "admin")]
-        [HttpPut("Update/id={id}&phone={phone}")]
-        public ActionResult<string> UpdateUserPhone(int id, string phone)
-        {
-            string message = "";
-            message = userDAO.UpdatePhoneNumber(id, phone);
-            return message;
-        }
+        ////[Authorize(Roles = "admin")]
+        //[HttpPut("Update/id={id}&email={email}")]
+        //public ActionResult<string> UpdateUserEmail(int id, string email)
+        //{
+        //    string message = "";
+        //    message = userDAO.UpdateEmail(id, email);
+        //    return message;
+        //}
+        ////[Authorize(Roles = "admin")]
+        //[HttpPut("Update/id={id}&phone={phone}")]
+        //public ActionResult<string> UpdateUserPhone(int id, string phone)
+        //{
+        //    string message = "";
+        //    message = userDAO.UpdatePhoneNumber(id, phone);
+        //    return message;
+        //}
         [HttpPost]
         public IActionResult Authenticate(LoginUser userParam)
         {

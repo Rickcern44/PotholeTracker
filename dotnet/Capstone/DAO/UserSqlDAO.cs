@@ -41,17 +41,21 @@ namespace Capstone.DAO
             return returnUsers;
         }
 
-        public string UpdateFirstName(int id, string firstName)
+        public void UpdateEmployee(User user)
         {
-            string sql = "Update Users SET FirstName = @updateValue where user_id = @id";
+            string sql = "Update Users SET FirstName = @firstName, LastName = @lastName, Email = @email, PhoneNumber= @phone where user_id = @id";
             try
             {
                 using(SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@updateValue", firstName);
+                    cmd.Parameters.AddWithValue("@id", user.UserId);
+                    cmd.Parameters.AddWithValue("@firstName", user.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", user.LastName);
+                    cmd.Parameters.AddWithValue("@phone", user.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+
 
                     cmd.ExecuteNonQuery();
                 }
@@ -62,77 +66,76 @@ namespace Capstone.DAO
                 Console.WriteLine(ex); ;
             }
 
-            return $"User {id}'s First Name was updated to {firstName}";
         }
-        public string UpdateLastName(int id, string lastName)
-        {
-            string sql = "Update Users SET LastName = @updateValue where user_id = @id";
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@updateValue", lastName);
+        //public string UpdateLastName(int id, string lastName)
+        //{
+        //    string sql = "Update Users SET LastName = @updateValue where user_id = @id";
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+        //            SqlCommand cmd = new SqlCommand(sql, conn);
+        //            cmd.Parameters.AddWithValue("@id", id);
+        //            cmd.Parameters.AddWithValue("@updateValue", lastName);
 
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                Console.WriteLine(ex); ;
-            }
+        //        Console.WriteLine(ex); ;
+        //    }
 
-            return $"User {id}'s Last Name was updated to {lastName}";
-        }
-        public string UpdateEmail(int id, string email)
-        {
-            string sql = "Update Users SET Email = @updateValue where user_id = @id";
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@updateValue", email);
+        //    return $"User {id}'s Last Name was updated to {lastName}";
+        //}
+        //public string UpdateEmail(int id, string email)
+        //{
+        //    string sql = "Update Users SET Email = @updateValue where user_id = @id";
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+        //            SqlCommand cmd = new SqlCommand(sql, conn);
+        //            cmd.Parameters.AddWithValue("@id", id);
+        //            cmd.Parameters.AddWithValue("@updateValue", email);
 
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                Console.WriteLine(ex); ;
-            }
+        //        Console.WriteLine(ex); ;
+        //    }
 
-            return $"User {id}'s Email was updated to {email}";
-        }
-        public string UpdatePhoneNumber(int id, string phone)
-        {
-            string sql = "Update Users SET PhoneNumber = @updateValue where user_id = @id";
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@updateValue", phone);
+        //    return $"User {id}'s Email was updated to {email}";
+        //}
+        //public string UpdatePhoneNumber(int id, string phone)
+        //{
+        //    string sql = "Update Users SET PhoneNumber = @updateValue where user_id = @id";
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+        //            SqlCommand cmd = new SqlCommand(sql, conn);
+        //            cmd.Parameters.AddWithValue("@id", id);
+        //            cmd.Parameters.AddWithValue("@updateValue", phone);
 
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                Console.WriteLine(ex); ;
-            }
+        //        Console.WriteLine(ex); ;
+        //    }
 
-            return $"User {id}'s Phone was updated to {phone}";
-        }
+        //    return $"User {id}'s Phone was updated to {phone}";
+        //}
         public User GetUser(string username)
         {
             User returnUser = null;
