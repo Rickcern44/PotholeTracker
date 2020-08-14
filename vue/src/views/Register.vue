@@ -49,7 +49,7 @@
         <input id="uln" type="text" placeholder="Last Name" name="LastName" v-model="selectedEmployee.lastName" required />
         <input id="uem" type="text" placeholder="Email" name="Email" v-model="selectedEmployee.email" />
         <input id="upn" type="text" placeholder="Phone Number" name="PhoneNumber" v-model="selectedEmployee.phoneNumber" />
-        <button type="submit" id="button" v-on:click="updateAll();">Submit</button>
+        <button type="submit" id="button" v-on:click.prevent="updateAll();">Submit</button>
       </form>
     </div>
     <div id="listContainer">
@@ -131,27 +131,27 @@ export default {
     assignUserId(employee){
       this.selectedEmployee = employee
     },
-    updateUserFirstName(id, firstName) {
-      id = this.userId;
-      firstName = this.firstName;
-      api.updateUserFirstName(id, firstName);
-      //Call the get to update the list
-    },
-    updateLastName(id, lastName) {
-      id = this.userId;
-      lastName = this.lastName;
-      api.updateUserLastName(id, lastName);
-    },
-    updateEmail(id, email){
-      id = this.userId
-      email = this.email
-      api.updateUserEmail(id, email)
-    },
-    updatePhone(id, phone){
-      id = this.userId;
-      phone = this.phoneNumber
-      api.updateUserPhone(id, phone)
-    },
+    // updateUserFirstName(id, firstName) {
+    //   id = this.userId;
+    //   firstName = this.firstName;
+    //   api.updateUserFirstName(id, firstName);
+    //   //Call the get to update the list
+    // },
+    // updateLastName(id, lastName) {
+    //   id = this.userId;
+    //   lastName = this.lastName;
+    //   api.updateUserLastName(id, lastName);
+    // },
+    // updateEmail(id, email){
+    //   id = this.userId
+    //   email = this.email
+    //   api.updateUserEmail(id, email)
+    // },
+    // updatePhone(id, phone){
+    //   id = this.userId;
+    //   phone = this.phoneNumber
+    //   api.updateUserPhone(id, phone)
+    // },
     updatePage(){
       api.getAllUsers().then(resp => {
         this.employeeList = resp.data

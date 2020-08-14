@@ -30,38 +30,14 @@ namespace Capstone.Controllers
 
             return users;
         }
-        //[Authorize(Roles = "admin")]
 
-        //[Authorize(Roles = "admin")]
-        //[HttpPut("Update/id={id}&lastname={lastName}")]
-        //public ActionResult<string> UpdateUserLastName(int id, string lastName)
-        //{
-        //    string message = "";
-        //    message = userDAO.UpdateLastName(id, lastName);
-        //    return message;
-        //}
         [HttpPut("Update/{id}")]
         public ActionResult UpdateEmployee(int id, User user)
         {
             userDAO.UpdateEmployee(user);
             return Ok();
         }
-        ////[Authorize(Roles = "admin")]
-        //[HttpPut("Update/id={id}&email={email}")]
-        //public ActionResult<string> UpdateUserEmail(int id, string email)
-        //{
-        //    string message = "";
-        //    message = userDAO.UpdateEmail(id, email);
-        //    return message;
-        //}
-        ////[Authorize(Roles = "admin")]
-        //[HttpPut("Update/id={id}&phone={phone}")]
-        //public ActionResult<string> UpdateUserPhone(int id, string phone)
-        //{
-        //    string message = "";
-        //    message = userDAO.UpdatePhoneNumber(id, phone);
-        //    return message;
-        //}
+ 
         [HttpPost]
         public IActionResult Authenticate(LoginUser userParam)
         {
