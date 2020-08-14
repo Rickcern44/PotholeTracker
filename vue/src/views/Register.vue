@@ -160,9 +160,7 @@ export default {
     updateAll(){
         api.updateEmployee(this.selectedEmployee).then(resp => {
           if (resp.status === 200){
-              alert("Employee Updated")
-          }else {
-            alert(`Error ${resp.statusText}`)
+              console.log("Updated")
           }
           
         })
