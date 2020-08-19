@@ -52,7 +52,7 @@
     <div id="content">
       <div class="potholelist" v-for="pothole in potholes" :key="pothole.id">
         <ul>
-          <potholeCard class="card" v-bind:pothole="pothole" />
+          <li class="list-item"><potholeCard class="card" v-bind:pothole="pothole" /></li>
         </ul>
       </div>
     </div>
@@ -115,11 +115,6 @@ export default {
     api.getPublicPotholes().then((resp) => {
       this.potholes = resp.data;
     });
-  },
-  mounted() {
-    //   api.getPublicPotholes().then((resp) => {
-    // this.potholes = resp.data;
-    // });
   },
 };
 </script>
@@ -216,6 +211,9 @@ header img {
 #footer{
 text-align: left;
 margin: 10px;
+}
+.list-item{
+  list-style: none;
 }
 </style>
 

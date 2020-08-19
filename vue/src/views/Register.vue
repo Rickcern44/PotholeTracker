@@ -86,12 +86,7 @@ export default {
       employeeList: [],
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
-      //user info
       userId: "",
-      // firstName: "",
-      // lastName: "",
-      // email: "",
-      // phoneNumber: "",
     };
   },
   created() {
@@ -131,27 +126,6 @@ export default {
     assignUserId(employee){
       this.selectedEmployee = employee
     },
-    // updateUserFirstName(id, firstName) {
-    //   id = this.userId;
-    //   firstName = this.firstName;
-    //   api.updateUserFirstName(id, firstName);
-    //   //Call the get to update the list
-    // },
-    // updateLastName(id, lastName) {
-    //   id = this.userId;
-    //   lastName = this.lastName;
-    //   api.updateUserLastName(id, lastName);
-    // },
-    // updateEmail(id, email){
-    //   id = this.userId
-    //   email = this.email
-    //   api.updateUserEmail(id, email)
-    // },
-    // updatePhone(id, phone){
-    //   id = this.userId;
-    //   phone = this.phoneNumber
-    //   api.updateUserPhone(id, phone)
-    // },
     updatePage(){
       api.getAllUsers().then(resp => {
         this.employeeList = resp.data
