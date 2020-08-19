@@ -52,7 +52,6 @@ namespace Capstone.DAO
         }
         public Pothole ReportApothole(Pothole pothole)
         {
-            //TODO: Fix the format of the date time
             pothole.Status = (PotholeStatus)1;
             pothole.DateAdded = DateTime.Now;
             string sqlQuery = "INSERT INTO Pothole([Location], DateAdded, [Description], Status) VALUES(@location, @dateAdded, @description, @status) SELECT @@IDENTITY";
@@ -81,8 +80,6 @@ namespace Capstone.DAO
             }
             return pothole;
         }
-        //Change this update to only take an id and status
-        //TODO: Fix this function to be more effeciant
         public string UpdateAPothole(int status, int id)
         {
             string sqlQuery = "UPDATE Pothole SET Status = @status  WHERE Id = @id";

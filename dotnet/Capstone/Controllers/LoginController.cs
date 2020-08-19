@@ -30,7 +30,6 @@ namespace Capstone.Controllers
 
             return users;
         }
-
         [HttpPut("Update/{id}")]
         public ActionResult UpdateEmployee(int id, User user)
         {

@@ -27,12 +27,21 @@ namespace Capstone.Controllers
             return potholes;
 
         }
+        //TODO 1: Do more protection within this method and fin a way to test it
         [AllowAnonymous]
         [HttpPost("Report")]
         public ActionResult<Pothole> ReportPothole(Pothole pothole)
         {
-            Pothole pothole1 = potholeDAO.ReportApothole(pothole);
-            return pothole1;
+            if (pothole.Description == "" || pothole.Location == "")
+            {
+                return Forbid();
+            }
+            else
+            {
+                Pothole pothole1 = potholeDAO.ReportApothole(pothole);
+                return Ok(pothole1);
+            }
+
         }
 
     }
